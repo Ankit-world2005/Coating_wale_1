@@ -31,7 +31,7 @@
   <aside class="wt-announcement-bar" role="region" aria-label="Announcements">
     <div class="site-container wt-announcement-container">
       <div class="wt-announcement-item">
-        <a href="#editorial">Need Help? Surface Care Guide &rarr;</a>
+        <a href="#bookServiceSection">Book CoatingWale Service &rarr;</a>
       </div>
       <div class="wt-announcement-item wt-announcement-item--center">
         <span>Free Express Delivery On All Nano-Protection Orders Across India</span>
@@ -45,7 +45,8 @@
   <!-- ===================================================================
        2. STICKY LUXURY HEADER & NAVIGATION
        =================================================================== -->
-  <div class="wt-header-sticky-wrapper">
+  <div class="wt-header-sticky-wrapper" id="headerStickyWrapper">
+    <div class="wt-scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
     <header class="site-container wt-header">
       <!-- Mobile Toggle Button -->
       <button class="wt-icon-btn wt-mobile-menu-toggle" id="mobileToggleBtn" aria-label="Open Navigation Menu">
@@ -59,6 +60,9 @@
 
       <!-- Desktop Navigation Menu -->
       <nav class="wt-nav-list" aria-label="Primary Navigation">
+        <!-- Direct Link to Book Service Box -->
+        <a href="#bookServiceSection" class="wt-nav-link wt-nav-link--highlight">Book Service</a>
+
         <!-- Mega Menu Item: Shop Collections -->
         <div class="wt-nav-item wt-nav-item--has-drop">
           <a href="#productsSection" class="wt-nav-link">
@@ -94,10 +98,86 @@
           </div>
         </div>
 
-        <a href="#mosaicSection" class="wt-nav-link">Rooms</a>
-        <a href="#shoppableSection" class="wt-nav-link">Shop The Room</a>
-        <a href="#editorial" class="wt-nav-link">The Science</a>
-        <a href="#simulator" class="wt-nav-link">Before &amp; After</a>
+        <!-- Services Dropdown -->
+        <div class="wt-nav-item wt-nav-item--has-drop">
+          <a href="#serviceJourneys" class="wt-nav-link">
+            Services <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+          </a>
+          <div class="cw-services-menu">
+            <div class="cw-services-menu-header">
+              <span class="eyebrow-pill" style="margin-bottom: 2px;">Recommended Journeys</span>
+              <h5>CoatingWale Specialized Treatments</h5>
+            </div>
+            <ul class="cw-services-list">
+              <li>
+                <a href="#bookServiceSection" class="cw-service-drop-item" data-prefill-service="Glass coating & water-repellent treatment">
+                  <div class="cw-service-drop-icon">
+                    <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div class="cw-service-drop-info">
+                    <strong class="cw-service-drop-title">Glass Coating</strong>
+                    <span class="cw-service-drop-sub">Glass water-repellent treatment</span>
+                  </div>
+                  <span class="cw-service-drop-arrow">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#bookServiceSection" class="cw-service-drop-item" data-prefill-service="Roof heat protection & waterproofing">
+                  <div class="cw-service-drop-icon">
+                    <i data-lucide="sun-medium" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div class="cw-service-drop-info">
+                    <strong class="cw-service-drop-title">Roof Heat Protection</strong>
+                    <span class="cw-service-drop-sub">Roof inspection &amp; compatible waterproofing</span>
+                  </div>
+                  <span class="cw-service-drop-arrow">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#bookServiceSection" class="cw-service-drop-item" data-prefill-service="Sofa & dining chairs protection">
+                  <div class="cw-service-drop-icon">
+                    <i data-lucide="armchair" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div class="cw-service-drop-info">
+                    <strong class="cw-service-drop-title">Sofa Protection</strong>
+                    <span class="cw-service-drop-sub">Dining chairs &amp; upholstered headboards</span>
+                  </div>
+                  <span class="cw-service-drop-arrow">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#bookServiceSection" class="cw-service-drop-item" data-prefill-service="Bathroom shower glass & tile treatment">
+                  <div class="cw-service-drop-icon">
+                    <i data-lucide="droplets" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div class="cw-service-drop-info">
+                    <strong class="cw-service-drop-title">Bathroom Treatment</strong>
+                    <span class="cw-service-drop-sub">Shower glass + compatible tile treatment</span>
+                  </div>
+                  <span class="cw-service-drop-arrow">&rarr;</span>
+                </a>
+              </li>
+              <li>
+                <a href="#bookServiceSection" class="cw-service-drop-item" data-prefill-service="Wood & matching furniture protection">
+                  <div class="cw-service-drop-icon">
+                    <i data-lucide="layers" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div class="cw-service-drop-info">
+                    <strong class="cw-service-drop-title">Wood Protection</strong>
+                    <span class="cw-service-drop-sub">Matching furniture &amp; wood surfaces</span>
+                  </div>
+                  <span class="cw-service-drop-arrow">&rarr;</span>
+                </a>
+              </li>
+            </ul>
+            <div class="cw-services-menu-footer">
+              <a href="#serviceJourneys" class="cw-services-explore-all">
+                <span>Explore All Service Journeys</span>
+                <i data-lucide="arrow-right" style="width: 13px; height: 13px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
         <a href="#testimonials" class="wt-nav-link">Reviews</a>
       </nav>
 
@@ -163,7 +243,7 @@
 
       <!-- Slide 3 -->
       <article class="wt-hero-slide">
-        <img src="assets/images/invisel-lineup.jpg" alt="Invisel Complete Sanctuary Nano Protection Lineup" class="wt-hero-bg">
+        <img src="assets/images/coatingwale-lineup.jpg" alt="CoatingWale Complete Sanctuary Nano Protection Lineup" class="wt-hero-bg">
         <div class="wt-hero-overlay"></div>
         <div class="site-container wt-hero-content">
           <span class="wt-hero-subhead">Quiet Luxury &bull; Guarded Forever</span>
@@ -227,7 +307,7 @@
 
         <!-- Bottom Right Card -->
         <a href="#productsSection" class="wt-mosaic-card">
-          <img src="assets/images/invisel-lineup.jpg" alt="Bath, Glass &amp; Shower Enclosures" class="wt-mosaic-bg">
+          <img src="assets/images/coatingwale-lineup.jpg" alt="Bath, Glass &amp; Shower Enclosures" class="wt-mosaic-bg">
           <div class="wt-mosaic-gradient"></div>
           <div class="wt-mosaic-content">
             <span class="wt-mosaic-tag">Department 03</span>
@@ -288,7 +368,7 @@
             <img src="assets/images/hero-sofa.jpg" alt="Fabric Shield" class="wt-hotspot-thumb">
             <div class="wt-hotspot-details">
               <div>
-                <h4 class="wt-hotspot-title">Invisel™ Fabric &amp; Boucle Shield</h4>
+                <h4 class="wt-hotspot-title">CoatingWale™ Fabric &amp; Boucle Shield</h4>
                 <div class="wt-hotspot-surface">Curved Boucle Sofa Care</div>
                 <div class="wt-hotspot-price">₹1,899</div>
               </div>
@@ -309,7 +389,7 @@
             <img src="assets/images/marble-glass.jpg" alt="Marble Armor" class="wt-hotspot-thumb">
             <div class="wt-hotspot-details">
               <div>
-                <h4 class="wt-hotspot-title">Invisel™ Marble &amp; Granite Armor</h4>
+                <h4 class="wt-hotspot-title">CoatingWale™ Marble &amp; Granite Armor</h4>
                 <div class="wt-hotspot-surface">Travertine Coffee Table</div>
                 <div class="wt-hotspot-price">₹2,199</div>
               </div>
@@ -330,7 +410,7 @@
             <img src="assets/images/macro-liquid.jpg" alt="Drape & Carpet Guard" class="wt-hotspot-thumb">
             <div class="wt-hotspot-details">
               <div>
-                <h4 class="wt-hotspot-title">Invisel™ Rug &amp; Carpet Guard</h4>
+                <h4 class="wt-hotspot-title">CoatingWale™ Rug &amp; Carpet Guard</h4>
                 <div class="wt-hotspot-surface">Linen Drapes &amp; Area Rug</div>
                 <div class="wt-hotspot-price">₹1,699</div>
               </div>
@@ -377,17 +457,17 @@
             <div class="wt-step-chip"><strong>06</strong> Aurelian™ Reserve</div>
           </div>
 
-          <div class="wt-specs-grid">
+          <div class="wt-specs-grid" id="specsCounterGrid">
             <div class="wt-spec-item">
-              <h4>3+ Years</h4>
+              <h4 data-counter-target="3" data-counter-suffix="+ Years">3+ Years</h4>
               <p>Durable molecular bond through repeated use.</p>
             </div>
             <div class="wt-spec-item">
-              <h4>100%</h4>
+              <h4 data-counter-target="100" data-counter-suffix="%">100%</h4>
               <p>Invisible &amp; breathable with zero surface sheen.</p>
             </div>
             <div class="wt-spec-item">
-              <h4>0% VOCs</h4>
+              <h4 data-counter-target="0" data-counter-prefix="" data-counter-suffix="% VOCs">0% VOCs</h4>
               <p>Water-based, non-flammable, and child safe.</p>
             </div>
           </div>
@@ -406,16 +486,16 @@
       <div class="section-headline">
         <span class="eyebrow-pill" style="margin-bottom: 12px;">Interactive Demonstration</span>
         <h2>Experience The Invisible Shield</h2>
-        <p>Drag the center divider to witness how wine and liquids behave on untreated fabric versus Invisel™ protected upholstery.</p>
+        <p>Drag the center divider to witness how wine and liquids behave on untreated fabric versus CoatingWale™ protected upholstery.</p>
       </div>
 
       <div class="wt-simulator-box" id="simBox">
         <span class="wt-sim-badge wt-sim-badge--left">Untreated: Immediate Absorption</span>
-        <span class="wt-sim-badge wt-sim-badge--right">Invisel: Surface Bead Repulsion</span>
+        <span class="wt-sim-badge wt-sim-badge--right">CoatingWale: Surface Bead Repulsion</span>
 
         <!-- Right Base Pane (Treated Surface) -->
         <div class="wt-sim-img-pane">
-          <img src="assets/images/macro-liquid.jpg" alt="Invisel Protected Hydrophobic Surface" class="wt-sim-img">
+          <img src="assets/images/macro-liquid.jpg" alt="CoatingWale Protected Hydrophobic Surface" class="wt-sim-img">
         </div>
 
         <!-- Left Overlay Pane (Untreated Surface) -->
@@ -471,7 +551,7 @@
           <div>
             <div class="wt-stars" style="margin-bottom: 16px;">★★★★★</div>
             <p class="wt-testimonial-quote">
-              &ldquo;We specify custom Italian boucle for our Mumbai penthouse clients. Invisel is the only coating that preserves the plush, dry hand feel without stiffening the weave.&rdquo;
+              &ldquo;We specify custom Italian boucle for our Mumbai penthouse clients. CoatingWale is the only coating that preserves the plush, dry hand feel without stiffening the weave.&rdquo;
             </p>
           </div>
           <div class="wt-testimonial-author">
@@ -553,18 +633,331 @@
   </section>
 
   <!-- ===================================================================
-       12. EDITORIAL NEWSLETTER BANNER
+       11B. RECOMMENDED SERVICE JOURNEYS
        =================================================================== -->
-  <section class="wt-newsletter-section">
+  <section class="cw-journeys-section" id="serviceJourneys" aria-label="Recommended Service Journeys">
     <div class="site-container">
-      <div class="wt-newsletter-box">
-        <span class="eyebrow-pill" style="margin-bottom: 12px;">The Care Circle</span>
-        <h2>Enjoy 10% Off Your First Order</h2>
-        <p>Subscribe to receive curated interior maintenance guides, fabric care dossier from architects, and seasonal releases.</p>
-        <form class="wt-newsletter-form" id="newsletterForm">
-          <input type="email" id="newsletterEmail" class="wt-input-field" placeholder="Enter your email address" required>
-          <button type="submit" class="wt-btn wt-btn-primary">Subscribe</button>
-        </form>
+      <div class="section-headline">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">Expert Protective Regimens</span>
+        <h2>Recommended Service Journeys</h2>
+        <p>Curated treatment pathways and complementary surface protection engineered for modern homes and commercial spaces.</p>
+      </div>
+
+      <div class="cw-journeys-grid">
+        <!-- Journey 1: Glass coating -->
+        <article class="cw-journey-card">
+          <div class="cw-journey-header">
+            <div class="cw-journey-icon">
+              <i data-lucide="sparkles" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span class="cw-journey-badge">Hydrophobic</span>
+          </div>
+          <h3 class="cw-journey-title">Glass Coating</h3>
+          <div class="cw-journey-subservice">
+            <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: #173FD6;"></i>
+            <span>Glass water-repellent treatment</span>
+          </div>
+          <p class="cw-journey-desc">
+            For suitable glass surfaces where water spotting or cleaning is a concern.
+          </p>
+          <a href="#bookServiceSection" class="cw-journey-cta" data-prefill-service="Glass coating & water-repellent treatment">
+            <span>Book Glass Treatment</span>
+            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </article>
+
+        <!-- Journey 2: Roof heat protection -->
+        <article class="cw-journey-card">
+          <div class="cw-journey-header">
+            <div class="cw-journey-icon">
+              <i data-lucide="sun-medium" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span class="cw-journey-badge">Thermal Barrier</span>
+          </div>
+          <h3 class="cw-journey-title">Roof Heat Protection</h3>
+          <div class="cw-journey-subservice">
+            <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: #173FD6;"></i>
+            <span>Roof inspection &amp; compatible waterproofing</span>
+          </div>
+          <p class="cw-journey-desc">
+            For roofs with signs of water ingress or where waterproofing is also needed.
+          </p>
+          <a href="#bookServiceSection" class="cw-journey-cta" data-prefill-service="Roof heat protection & waterproofing">
+            <span>Book Roof Protection</span>
+            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </article>
+
+        <!-- Journey 3: Sofa protection -->
+        <article class="cw-journey-card">
+          <div class="cw-journey-header">
+            <div class="cw-journey-icon">
+              <i data-lucide="armchair" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span class="cw-journey-badge">Fiber Guard</span>
+          </div>
+          <h3 class="cw-journey-title">Sofa Protection</h3>
+          <div class="cw-journey-subservice">
+            <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: #173FD6;"></i>
+            <span>Dining chairs and upholstered headboards</span>
+          </div>
+          <p class="cw-journey-desc">
+            Treat other compatible fabric surfaces during the same visit.
+          </p>
+          <a href="#bookServiceSection" class="cw-journey-cta" data-prefill-service="Sofa & dining chairs protection">
+            <span>Book Sofa Treatment</span>
+            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </article>
+
+        <!-- Journey 4: Bathroom treatment -->
+        <article class="cw-journey-card">
+          <div class="cw-journey-header">
+            <div class="cw-journey-icon">
+              <i data-lucide="droplets" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span class="cw-journey-badge">Anti-Limescale</span>
+          </div>
+          <h3 class="cw-journey-title">Bathroom Treatment</h3>
+          <div class="cw-journey-subservice">
+            <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: #173FD6;"></i>
+            <span>Shower glass + compatible tile treatment</span>
+          </div>
+          <p class="cw-journey-desc">
+            Address different bathroom surfaces through separate, suitable treatments.
+          </p>
+          <a href="#bookServiceSection" class="cw-journey-cta" data-prefill-service="Bathroom shower glass & tile treatment">
+            <span>Book Bathroom Care</span>
+            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </article>
+
+        <!-- Journey 5: Wood protection -->
+        <article class="cw-journey-card">
+          <div class="cw-journey-header">
+            <div class="cw-journey-icon">
+              <i data-lucide="layers" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span class="cw-journey-badge">Grain Shield</span>
+          </div>
+          <h3 class="cw-journey-title">Wood Protection</h3>
+          <div class="cw-journey-subservice">
+            <i data-lucide="check-circle-2" style="width: 14px; height: 14px; color: #173FD6;"></i>
+            <span>Matching furniture and wood surfaces</span>
+          </div>
+          <p class="cw-journey-desc">
+            Extend suitable protection to other compatible furniture items.
+          </p>
+          <a href="#bookServiceSection" class="cw-journey-cta" data-prefill-service="Wood & matching furniture protection">
+            <span>Book Wood Treatment</span>
+            <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       12. SIDE-BY-SIDE: THE CARE CIRCLE & BOOK A COATINGWALE SERVICE
+       =================================================================== -->
+  <section class="cw-bottom-split-section" id="bookServiceSection" aria-label="Care Circle and CoatingWale Service Booking">
+    <div class="site-container">
+      <div class="cw-split-grid">
+        <!-- Left Box: The Care Circle VIP Club & Newsletter -->
+        <div class="cw-care-circle-card">
+          <div class="cw-care-circle-content">
+            <div>
+              <span class="eyebrow-pill" style="margin-bottom: 6px;">The Care Circle</span>
+              <h2>Enjoy 10% Off Your First Order</h2>
+              <p class="cw-care-circle-desc">
+                Subscribe to receive curated interior maintenance guides, fabric care dossiers from architectural restoration experts, and seasonal formulation releases.
+              </p>
+
+              <!-- Care Perks List -->
+              <div class="cw-care-perks-list">
+                <div class="cw-care-perk-item">
+                  <div class="cw-care-perk-icon">
+                    <i data-lucide="percent" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div>
+                    <strong>10% Welcome Voucher</strong>
+                    <span>Instant promo discount applied on your first booking or DIY set.</span>
+                  </div>
+                </div>
+                <div class="cw-care-perk-item">
+                  <div class="cw-care-perk-icon">
+                    <i data-lucide="sparkles" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div>
+                    <strong>Bespoke Surface Dossier</strong>
+                    <span>Architect-approved seasonal care tips for marble, boucle &amp; glass.</span>
+                  </div>
+                </div>
+                <div class="cw-care-perk-item">
+                  <div class="cw-care-perk-icon">
+                    <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+                  </div>
+                  <div>
+                    <strong>VIP Priority Scheduling</strong>
+                    <span>Fast-tracked technician slot allocation for member residences.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Newsletter Form -->
+            <div>
+              <form class="wt-newsletter-form cw-split-newsletter-form" id="newsletterForm">
+                <input type="email" id="newsletterEmail" class="wt-input-field" placeholder="Enter your email address" required>
+                <button type="submit" class="wt-btn wt-btn-primary">Join Club</button>
+              </form>
+
+              <div class="cw-care-concierge-call">
+                <i data-lucide="phone-call" style="width: 16px; height: 16px; color: #1e1b18;"></i>
+                <span>Direct Concierge Desk: <strong>+91 (0) 800-468-4735</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Box: Book a CoatingWale Service Card -->
+        <div class="cw-book-card-box">
+          <!-- Header -->
+          <div class="cw-book-header">
+            <span class="eyebrow-pill" style="margin-bottom: 4px;">Direct Service Booking</span>
+            <h2>Book a CoatingWale Service</h2>
+            <p class="cw-book-subtitle">(Illustrative booking form for your developer.)</p>
+          </div>
+
+          <!-- Interactive Form -->
+          <form class="cw-book-form" id="coatingWaleBookForm">
+            <div class="cw-book-grid">
+              <!-- 1. What do you need help with? -->
+              <div class="cw-book-field cw-book-field--full">
+                <label class="cw-book-label" for="bookHelpWith">
+                  <span>What do you need help with?</span> <span class="req">*</span>
+                </label>
+                <select id="bookHelpWith" class="cw-book-select" required>
+                  <option value="" disabled selected>Select a coating service requirement...</option>
+                  <option value="Glass coating & water-repellent treatment">Glass coating — Water-repellent treatment</option>
+                  <option value="Roof heat protection & waterproofing">Roof heat protection — Inspection & compatible waterproofing</option>
+                  <option value="Sofa & dining chairs protection">Sofa protection — Dining chairs & upholstered headboards</option>
+                  <option value="Bathroom shower glass & tile treatment">Bathroom treatment — Shower glass + compatible tile treatment</option>
+                  <option value="Wood & matching furniture protection">Wood protection — Matching furniture & wood surfaces</option>
+                  <option value="Multiple services / combo package">Multiple services / combo package</option>
+                </select>
+              </div>
+
+              <!-- 2. Property type -->
+              <div class="cw-book-field">
+                <label class="cw-book-label" for="bookPropertyType">
+                  <span>Property type</span> <span class="req">*</span>
+                </label>
+                <select id="bookPropertyType" class="cw-book-select" required>
+                  <option value="" disabled selected>Select property type...</option>
+                  <option value="Home / apartment / villa">Home / apartment / villa</option>
+                  <option value="Office / shop / hotel / commercial property">Office / shop / hotel / commercial property</option>
+                </select>
+              </div>
+
+              <!-- 3. Your area -->
+              <div class="cw-book-field">
+                <label class="cw-book-label" for="bookArea">
+                  <span>Your area</span> <span class="req">*</span>
+                </label>
+                <input type="text" id="bookArea" class="cw-book-input" placeholder="Add your Area (e.g. 1200 sq.ft or Worli, Mumbai)" required>
+              </div>
+
+              <!-- 4. Preferred service timing -->
+              <div class="cw-book-field">
+                <label class="cw-book-label" for="bookTiming">
+                  <span>Preferred service timing</span> <span class="req">*</span>
+                </label>
+                <select id="bookTiming" class="cw-book-select" required>
+                  <option value="" disabled selected>Select timing preference...</option>
+                  <option value="As soon as possible">As soon as possible</option>
+                  <option value="Within 3 days">Within 3 days</option>
+                  <option value="Within a week">Within a week</option>
+                  <option value="Choice - (manually)">Choice - (manually)</option>
+                </select>
+                <!-- Manual timing input if 'Choice - (manually)' is picked -->
+                <input type="text" id="bookTimingManual" class="cw-book-input" placeholder="Specify your preferred date or timing (e.g. Next Saturday morning)" style="display: none; margin-top: 8px;">
+              </div>
+
+              <!-- 5. What would you like to book? -->
+              <div class="cw-book-field">
+                <label class="cw-book-label" for="bookSpecifics">
+                  <span>What would you like to book?</span> <span class="req">*</span>
+                </label>
+                <input type="text" id="bookSpecifics" class="cw-book-input" placeholder="e.g. 3BHK Living Room Balcony Heat Reduction + Sofa Guard" required>
+              </div>
+
+              <!-- Section Divider: Your contact details -->
+              <div class="cw-book-field cw-book-field--full cw-book-divider-title">
+                <i data-lucide="user-check" style="width: 18px; height: 18px; color: #173fd6;"></i>
+                <h4>Your contact details</h4>
+              </div>
+
+              <!-- Contact: Full Name -->
+              <div class="cw-book-field">
+                <label class="cw-book-label" for="bookFullName">
+                  <span>Full name</span> <span class="req">*</span>
+                </label>
+                <input type="text" id="bookFullName" class="cw-book-input" placeholder="e.g. Rohan Mehta" required>
+              </div>
+
+              <!-- Contact: Mobile Number -->
+              <div class="cw-book-field">
+                <label class="cw-book-label" for="bookMobile">
+                  <span>Mobile number</span> <span class="req">*</span>
+                </label>
+                <input type="tel" id="bookMobile" class="cw-book-input" placeholder="+91 98765 43210" required>
+              </div>
+
+              <!-- Contact: Remark -->
+              <div class="cw-book-field cw-book-field--full">
+                <label class="cw-book-label" for="bookRemark">
+                  <span>Remark</span>
+                </label>
+                <textarea id="bookRemark" class="cw-book-textarea" rows="2" placeholder="Any specific requirements, surface condition, or gate pass instructions"></textarea>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="wt-btn wt-btn-primary cw-book-submit-btn" id="bookSubmitBtn">
+              <span>Book CoatingWale Service Now</span>
+              <i data-lucide="arrow-right" style="width: 18px; height: 18px;"></i>
+            </button>
+
+            <!-- Trust Badges -->
+            <div class="cw-book-trust-strip">
+              <span><i data-lucide="shield-check" style="width: 15px; height: 15px; color: #2e7d32;"></i> Verified Technicians</span>
+              <span><i data-lucide="check-circle-2" style="width: 15px; height: 15px; color: #2e7d32;"></i> Zero Advance Payment</span>
+              <span><i data-lucide="clock" style="width: 15px; height: 15px; color: #173fd6;"></i> Fast 2-Hour Response</span>
+            </div>
+          </form>
+
+          <!-- Success Confirmation State (Displayed on submission) -->
+          <div class="cw-book-success-card" id="bookSuccessCard">
+            <div class="cw-book-success-icon">
+              <i data-lucide="check" style="width: 32px; height: 32px;"></i>
+            </div>
+            <span class="cw-book-ref-tag" id="bookRefTag">Ref: CW-BK-894721</span>
+            <h3 style="font-size: 24px; font-weight: 700; color: var(--color-headings-text); margin: 0;">Booking Request Received!</h3>
+            <p style="font-size: 14.5px; color: var(--color-body-text-light); max-width: 520px; line-height: 1.5; margin: 0;">
+              Thank you, <strong id="successName">Customer</strong>. Our service coordinator will call you on <strong id="successMobile">+91 ...</strong> to confirm your slot and technician arrival.
+            </p>
+
+            <div class="cw-book-summary-table" id="bookSummaryTable">
+              <!-- Dynamically populated -->
+            </div>
+
+            <button type="button" class="wt-btn wt-btn-secondary" id="bookResetBtn" style="margin-top: 10px;">
+              <i data-lucide="plus" style="width: 15px; height: 15px;"></i>
+              <span>Submit Another Booking</span>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -635,7 +1028,7 @@
         <div class="wt-footer-col">
           <h4>Studio &amp; Labs</h4>
           <p>
-            INVISEL Innovations Lab<br>
+            COATINGWALE Innovations Lab<br>
             Level 4, Horizon One<br>
             Bandra Kurla Complex (BKC)<br>
             Mumbai, Maharashtra 400051
@@ -777,9 +1170,21 @@
         </button>
       </div>
       <nav class="wt-mobile-nav-links">
+        <div class="cw-mobile-service-group">
+          <div class="cw-mobile-service-toggle" id="mobileServicesToggle">
+            <span>Services (5 Journeys)</span>
+            <i data-lucide="chevron-down" style="width: 16px; height: 16px;"></i>
+          </div>
+          <div class="cw-mobile-service-sublinks" id="mobileServicesSublinks">
+            <a href="#bookServiceSection" data-prefill-service="Glass coating & water-repellent treatment">・ Glass Coating (Water-Repellent)</a>
+            <a href="#bookServiceSection" data-prefill-service="Roof heat protection & waterproofing">・ Roof Heat Protection &amp; Waterproofing</a>
+            <a href="#bookServiceSection" data-prefill-service="Sofa & dining chairs protection">・ Sofa &amp; Chairs Protection</a>
+            <a href="#bookServiceSection" data-prefill-service="Bathroom shower glass & tile treatment">・ Bathroom Treatment (Glass &amp; Tiles)</a>
+            <a href="#bookServiceSection" data-prefill-service="Wood & matching furniture protection">・ Wood &amp; Furniture Protection</a>
+            <a href="#serviceJourneys" style="color: #173FD6; font-weight: 700;">Explore All Service Journeys &rarr;</a>
+          </div>
+        </div>
         <a href="#productsSection">All Products</a>
-        <a href="#mosaicSection">Shop By Room</a>
-        <a href="#shoppableSection">Shop The Look</a>
         <a href="#editorial">German Nanotechnology</a>
         <a href="#simulator">Spill Simulator</a>
         <a href="#testimonials">Reviews &amp; Press</a>
@@ -790,6 +1195,25 @@
       </div>
     </div>
   </div>
+
+  <!-- ===================================================================
+       18. SCROLL-BASED FLOATING CONTROLS
+       =================================================================== -->
+  <aside class="cw-floating-controls" id="floatingControls" aria-label="Quick Actions">
+    <!-- Quick Book Service Pill -->
+    <a href="#bookServiceSection" class="cw-floating-book-pill" id="floatingBookPill" aria-label="Jump to Book CoatingWale Service">
+      <span class="cw-pulse-indicator"></span>
+      <span class="cw-floating-pill-text">Book a Service</span>
+      <span class="cw-floating-pill-icon">
+        <i data-lucide="arrow-down" style="width: 14px; height: 14px;"></i>
+      </span>
+    </a>
+
+    <!-- Back To Top Button -->
+    <button class="cw-back-to-top" id="backToTopBtn" aria-label="Scroll back to top">
+      <i data-lucide="arrow-up" style="width: 16px; height: 16px;"></i>
+    </button>
+  </aside>
 
   <!-- Application Logic -->
   <script src="js/main.js"></script>

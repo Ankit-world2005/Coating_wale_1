@@ -1,5 +1,5 @@
 /* ===================================================================
-   INVISEL™ × WONDER THEME INTERIOR DESIGN SYSTEM
+   COATINGWALE™ × WONDER THEME INTERIOR DESIGN SYSTEM
    Migrated from: https://wonder-theme-interior.myshopify.com/
    Clean Scandinavian / Japandi Luxury Interior Surface Care
    =================================================================== */
@@ -329,11 +329,28 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-header-border);
-  transition: all var(--duration-default) ease;
+  transition: all 0.3s ease;
+}
+
+/* Hairline Scroll Progress Bar */
+.wt-scroll-progress-bar {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  height: 2.5px;
+  width: 0%;
+  background: linear-gradient(90deg, #173FD6 0%, #c99c3b 55%, #1e1b18 100%);
+  z-index: 105;
+  transition: width 0.08s ease-out;
+  pointer-events: none;
 }
 
 .wt-header-sticky-wrapper.is-scrolled {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 .wt-header {
@@ -342,6 +359,11 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
+  transition: height 0.3s ease;
+}
+
+.wt-header-sticky-wrapper.is-scrolled .wt-header {
+  height: 60px;
 }
 
 /* Brand Logo */
@@ -403,7 +425,7 @@ h1, h2, h3, h4, h5, h6 {
 .wt-nav-list {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: clamp(16px, 1.8vw, 26px);
 }
 
 .wt-nav-link {
@@ -416,6 +438,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  white-space: nowrap;
 }
 
 .wt-nav-link::after {
@@ -513,6 +536,185 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
   color: var(--color-body-text);
   margin-bottom: 14px;
+}
+
+/* ==========================================
+   Services Header Dropdown Menu
+   ========================================== */
+.cw-services-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(14px);
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1);
+  padding: 18px 18px 12px;
+  min-width: 420px;
+  max-width: 460px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all var(--duration-default) var(--ease-subtle);
+  border-radius: 12px;
+  z-index: 120;
+}
+
+.wt-nav-item--has-drop:hover .cw-services-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.cw-services-menu-header {
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.cw-services-menu-header h5 {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-headings-text);
+  margin-top: 2px;
+}
+
+.cw-services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cw-service-drop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.cw-service-drop-item:hover {
+  background-color: var(--color-sand-light);
+  transform: translateX(3px);
+}
+
+.cw-service-drop-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background-color: rgba(23, 63, 214, 0.08);
+  color: #173fd6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.cw-service-drop-item:hover .cw-service-drop-icon {
+  background-color: #173fd6;
+  color: #ffffff;
+}
+
+.cw-service-drop-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.cw-service-drop-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-headings-text);
+  line-height: 1.25;
+}
+
+.cw-service-drop-sub {
+  font-size: 11.5px;
+  color: var(--color-body-text-light);
+  line-height: 1.3;
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cw-service-drop-arrow {
+  font-size: 14px;
+  color: var(--color-body-text-light);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.2s ease;
+}
+
+.cw-service-drop-item:hover .cw-service-drop-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #173fd6;
+}
+
+.cw-services-menu-footer {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--color-border);
+}
+
+.cw-services-explore-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 700;
+  color: #173fd6;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+.cw-services-explore-all:hover {
+  background-color: rgba(23, 63, 214, 0.06);
+}
+
+/* Mobile Service Group Accordion */
+.cw-mobile-service-group {
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: 6px;
+}
+
+.cw-mobile-service-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-text);
+  padding-block: 8px;
+  cursor: pointer;
+}
+
+.cw-mobile-service-sublinks {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 10px;
+  padding-top: 6px;
+}
+
+.cw-mobile-service-group.is-open .cw-mobile-service-sublinks {
+  display: flex;
+}
+
+.cw-mobile-service-sublinks a {
+  font-size: 13.5px;
+  color: var(--color-body-text);
+  padding-block: 3px;
+  border-bottom: none !important;
 }
 
 /* Header Utilities */
@@ -2317,3 +2519,762 @@ h1, h2, h3, h4, h5, h6 {
   padding-block: 6px;
   border-bottom: 1px solid var(--color-border-light);
 }
+
+/* ===================================================================
+   RECOMMENDED SERVICE JOURNEYS SECTION
+   =================================================================== */
+.cw-journeys-section {
+  padding-block: clamp(48px, 5.5vw, 70px);
+  background: linear-gradient(180deg, #FAF8F5 0%, #FFFFFF 100%);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+}
+
+.cw-journeys-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(16px, 2vw, 22px);
+}
+
+.cw-journey-card {
+  background: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  padding: 22px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(30, 27, 24, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.cw-journey-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.cw-journey-card:hover {
+  transform: translateY(-4px);
+  border-color: #ded5be;
+  box-shadow: 0 12px 28px rgba(30, 27, 24, 0.08);
+}
+
+.cw-journey-card:hover::before {
+  background: linear-gradient(90deg, #173FD6 0%, #c99c3b 100%);
+}
+
+.cw-journey-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.cw-journey-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: var(--color-sand-light);
+  border: 1px solid var(--color-border);
+  color: #173FD6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cw-journey-card:hover .cw-journey-icon {
+  background-color: #173FD6;
+  color: #ffffff;
+  border-color: #173FD6;
+}
+
+.cw-journey-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-body-text-light);
+  background-color: #FAF8F5;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.cw-journey-title {
+  font-family: var(--font-headline);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--color-headings-text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.cw-journey-subservice {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  background: rgba(23, 63, 214, 0.04);
+  border: 1px solid rgba(23, 63, 214, 0.12);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-headings-text);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.cw-journey-subservice i {
+  margin-top: 1px;
+  flex-shrink: 0;
+}
+
+.cw-journey-desc {
+  font-size: 12.5px;
+  color: var(--color-body-text);
+  line-height: 1.45;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.cw-journey-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px 12px;
+  border-radius: var(--border-radius-button);
+  background-color: #FAF8F5;
+  border: 1.5px solid var(--color-border);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-headings-text);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: auto;
+}
+
+.cw-journey-card:hover .cw-journey-cta {
+  background-color: #1e1b18;
+  color: #ffffff;
+  border-color: #1e1b18;
+}
+
+/* ===================================================================
+   SIDE-BY-SIDE CARE CIRCLE & COATINGWALE SERVICE BOOK BOX (COMPACT)
+   =================================================================== */
+.cw-bottom-split-section {
+  padding-block: clamp(20px, 2.5vw, 32px);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8F5 100%);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+}
+
+.cw-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: clamp(14px, 2vw, 22px);
+  align-items: stretch;
+}
+
+@media (max-width: 1024px) {
+  .cw-split-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* Care Circle Card (Left Column) - Compact */
+.cw-care-circle-card {
+  background: linear-gradient(160deg, #F4EEDA 0%, #FAF8F5 100%);
+  border: 1.5px solid #ded5be;
+  border-radius: 14px;
+  padding: clamp(16px, 2vw, 22px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(30, 27, 24, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.cw-care-circle-card::after {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(23, 63, 214, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cw-care-circle-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cw-care-circle-content h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--color-headings-text);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+
+.cw-care-circle-desc {
+  font-size: 12px;
+  color: var(--color-body-text);
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.cw-care-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(222, 213, 190, 0.7);
+  border-radius: 10px;
+  padding: 10px 12px;
+  backdrop-filter: blur(4px);
+}
+
+.cw-care-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cw-care-perk-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #173fd6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.cw-care-perk-icon i {
+  width: 11px;
+  height: 11px;
+}
+
+.cw-care-perk-item strong {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-headings-text);
+  margin-right: 4px;
+}
+
+.cw-care-perk-item span {
+  font-size: 11.5px;
+  color: var(--color-body-text-light);
+  line-height: 1.3;
+}
+
+.cw-split-newsletter-form {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 540px) {
+  .cw-split-newsletter-form {
+    flex-direction: column;
+  }
+}
+
+.cw-split-newsletter-form .wt-input-field {
+  flex: 1;
+  padding: 6px 12px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--border-radius-button);
+  background-color: #ffffff;
+  font-size: 12.5px;
+  outline: none;
+  height: 34px;
+}
+.cw-split-newsletter-form .wt-input-field:focus {
+  border-color: #1e1b18;
+}
+
+.cw-split-newsletter-form .wt-btn {
+  padding: 6px 14px;
+  font-size: 12.5px;
+  white-space: nowrap;
+  height: 34px;
+}
+
+.cw-care-concierge-call {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--color-body-text-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding-top: 8px;
+}
+
+/* Book Card Box (Right Column) - Compact */
+.cw-book-card-box {
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(30, 27, 24, 0.05);
+  padding: clamp(16px, 2vw, 22px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cw-book-card-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #1e1b18 0%, #173fd6 50%, #c99c3b 100%);
+}
+
+.cw-book-header {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+.cw-book-header h2 {
+  font-family: var(--font-headline);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  color: var(--color-headings-text);
+  letter-spacing: -0.015em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.cw-book-subtitle {
+  font-size: 11.5px;
+  color: var(--color-body-text-light);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.cw-book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cw-book-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px 10px;
+}
+
+@media (max-width: 680px) {
+  .cw-book-grid {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+}
+
+.cw-book-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cw-book-field--full {
+  grid-column: 1 / -1;
+}
+
+.cw-book-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--color-headings-text);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.cw-book-label span.req {
+  color: #c62828;
+}
+
+.cw-book-input,
+.cw-book-select,
+.cw-book-textarea {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 12.5px;
+  color: var(--color-text);
+  background-color: #FAF8F5;
+  transition: all var(--duration-default) ease;
+}
+
+.cw-book-input,
+.cw-book-select {
+  height: 34px;
+}
+
+.cw-book-input:focus,
+.cw-book-select:focus,
+.cw-book-textarea:focus {
+  outline: none;
+  border-color: #1e1b18;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(30, 27, 24, 0.08);
+}
+
+.cw-book-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231e1b18' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 13px;
+  padding-right: 28px;
+}
+
+.cw-book-textarea {
+  resize: vertical;
+  min-height: 40px;
+  height: 40px;
+}
+
+/* Contact Details Subsection Divider */
+.cw-book-divider-title {
+  margin-top: 2px;
+  margin-bottom: 0px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cw-book-divider-title h4 {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-headings-text);
+  margin: 0;
+}
+
+.cw-book-submit-btn {
+  width: 100%;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 2px;
+  border-radius: var(--border-radius-button);
+  cursor: pointer;
+  transition: all var(--duration-default) var(--ease-smooth);
+  height: 36px;
+}
+
+.cw-book-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(30, 27, 24, 0.16);
+}
+
+.cw-book-trust-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: 10.5px;
+  color: var(--color-body-text-light);
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.cw-book-trust-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Success Confirmation Card State */
+.cw-book-success-card {
+  text-align: center;
+  padding: 30px 20px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadeIn 0.4s ease;
+}
+
+.cw-book-success-card.is-active {
+  display: flex;
+}
+
+.cw-book-success-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cw-book-ref-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: #f0ece1;
+  border-radius: 20px;
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e1b18;
+  letter-spacing: 0.05em;
+}
+
+.cw-book-summary-table {
+  width: 100%;
+  max-width: 640px;
+  text-align: left;
+  background-color: #FAF8F5;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13.5px;
+  margin-block: 8px;
+}
+
+.cw-book-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.cw-book-summary-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.cw-book-summary-label {
+  color: var(--color-body-text-light);
+  font-weight: 500;
+}
+.cw-book-summary-value {
+  color: var(--color-headings-text);
+  font-weight: 700;
+  text-align: right;
+  max-width: 60%;
+}
+
+/* ===================================================================
+   SCROLL-BASED FLOATING CONTROLS & QUICK ACTIONS
+   =================================================================== */
+.cw-floating-controls {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 95;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: none;
+}
+
+/* Quick Book Service Floating Pill */
+.cw-floating-book-pill {
+  background: rgba(30, 27, 24, 0.94);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(24px) scale(0.95);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  pointer-events: none;
+}
+
+.cw-floating-book-pill.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.cw-floating-book-pill:hover {
+  background: #173FD6;
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(23, 63, 214, 0.35);
+  color: #ffffff;
+}
+
+.cw-pulse-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.cw-pulse-indicator::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  border: 2px solid #4caf50;
+  animation: cwPulseGlow 1.8s infinite;
+}
+
+@keyframes cwPulseGlow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.cw-floating-pill-icon {
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Back To Top Button */
+.cw-back-to-top {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #1e1b18;
+  border: 1.5px solid var(--color-border);
+  box-shadow: 0 8px 24px rgba(30, 27, 24, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(24px) scale(0.9);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, color 0.2s ease;
+  pointer-events: none;
+}
+
+.cw-back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.cw-back-to-top:hover {
+  background: #1e1b18;
+  color: #ffffff;
+  border-color: #1e1b18;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+  .cw-floating-controls {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    justify-content: space-between;
+  }
+  .cw-floating-book-pill {
+    flex: 1;
+    justify-content: center;
+    padding: 9px 14px;
+    font-size: 12.5px;
+  }
+}
+
+/* ===================================================================
+   SCROLL-TRIGGERED REVEAL ANIMATIONS (INTERSECTION OBSERVER)
+   =================================================================== */
+.cw-scroll-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.cw-scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for sibling grid elements */
+.cw-scroll-reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+.cw-scroll-reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+.cw-scroll-reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+.cw-scroll-reveal:nth-child(5) {
+  transition-delay: 0.32s;
+}
+.cw-scroll-reveal:nth-child(6) {
+  transition-delay: 0.40s;
+}
+
+

@@ -1,5 +1,5 @@
 /* ===================================================================
-   INVISEL™ × WONDER THEME INTERIOR - MAIN JAVASCRIPT
+   COATINGWALE™ × WONDER THEME INTERIOR - MAIN JAVASCRIPT
    Interactions, Cart Drawer, Lookbook Hotspots, Hydrophobic Simulator,
    Hero Slideshow, Tabs, and Quick View
    =================================================================== */
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const PRODUCTS = [
     {
       id: 'inv-fabric-shield',
-      name: 'Invisel™ Hydrophobic Fabric & Boucle Shield',
+      name: 'CoatingWale™ Hydrophobic Fabric & Boucle Shield',
       category: 'fabric',
       categoryLabel: 'Living Room & Upholstery',
       price: 1899,
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'inv-marble-armor',
-      name: 'Invisel™ Calacatta & Honed Marble Armor',
+      name: 'CoatingWale™ Calacatta & Honed Marble Armor',
       category: 'marble',
       categoryLabel: 'Dining & Natural Stone',
       price: 2199,
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'inv-glass-barrier',
-      name: 'Invisel™ Crystal Clear Glass & Shower Guard',
+      name: 'CoatingWale™ Crystal Clear Glass & Shower Guard',
       category: 'glass',
       categoryLabel: 'Bath & Architectural Glass',
       price: 1499,
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'inv-leather-wood',
-      name: 'Invisel™ Top-Grain Leather & Timber Glaze',
+      name: 'CoatingWale™ Top-Grain Leather & Timber Glaze',
       category: 'fabric',
       categoryLabel: 'Leather & Handcrafted Wood',
       price: 1999,
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeType: 'sale',
       rating: 5.0,
       reviewsCount: 215,
-      primaryImage: 'assets/images/invisel-lineup.jpg',
+      primaryImage: 'assets/images/coatingwale-lineup.jpg',
       secondaryImage: 'assets/images/macro-liquid.jpg',
       description: 'Complete 4-bottle luxury care arsenal: Fabric & Boucle Shield (500ml), Marble Armor (500ml), Glass Guard (500ml), and Leather Glaze (500ml) with 4 microfiber applicators.',
       coverage: 'Complete 3BHK / 4BHK Luxury Apartment Surface Protection',
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'inv-rug-carpet',
-      name: 'Invisel™ Deep-Fiber Wool Rug & Carpet Guard',
+      name: 'CoatingWale™ Deep-Fiber Wool Rug & Carpet Guard',
       category: 'fabric',
       categoryLabel: 'Textiles & Rugs',
       price: 1699,
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'inv-countertop-shield',
-      name: 'Invisel™ Kitchen Quartz & Granite Bio-Pel',
+      name: 'CoatingWale™ Kitchen Quartz & Granite Bio-Pel',
       category: 'marble',
       categoryLabel: 'Culinary Surfaces',
       price: 1899,
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       id: 'inv-outdoor-patio',
-      name: 'Invisel™ Weather-Proof Patio & Teak Shield',
+      name: 'CoatingWale™ Weather-Proof Patio & Teak Shield',
       category: 'bundles',
       categoryLabel: 'Balcony & Outdoor Living',
       price: 2499,
@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       badgeType: 'limited',
       rating: 4.9,
       reviewsCount: 41,
-      primaryImage: 'assets/images/invisel-lineup.jpg',
+      primaryImage: 'assets/images/coatingwale-lineup.jpg',
       secondaryImage: 'assets/images/macro-liquid.jpg',
       description: 'High-UV resistance coating formulated for exterior Sunbrella fabrics, rattan furniture, and outdoor deck stone. Repels torrential monsoon rains, bird droppings, and algae.',
       coverage: 'Covers up to 180 sq. ft (Outdoor Sectional + 6 Deck Chairs)',
@@ -180,8 +180,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  let cart = JSON.parse(localStorage.getItem('wt_invisel_cart') || '[]');
-  let currency = localStorage.getItem('wt_invisel_currency') || 'INR';
+  let cart = JSON.parse(localStorage.getItem('wt_coatingwale_cart') || '[]');
+  let currency = localStorage.getItem('wt_coatingwale_currency') || 'INR';
   const CURRENCY_RATES = { INR: 1, USD: 0.012 };
   const CURRENCY_SYMBOLS = { INR: '₹', USD: '$' };
   const FREE_SHIPPING_THRESHOLD = 999;
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function saveCart() {
-    localStorage.setItem('wt_invisel_cart', JSON.stringify(cart));
+    localStorage.setItem('wt_coatingwale_cart', JSON.stringify(cart));
     updateCartUI();
   }
 
@@ -772,7 +772,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currencyToggleBtn = document.getElementById('currencyToggleBtn');
   currencyToggleBtn?.addEventListener('click', () => {
     currency = currency === 'INR' ? 'USD' : 'INR';
-    localStorage.setItem('wt_invisel_currency', currency);
+    localStorage.setItem('wt_coatingwale_currency', currency);
     currencyToggleBtn.innerHTML = currency === 'INR' ? `🇮🇳 INR ₹` : `🇺🇸 USD $`;
     renderProducts(document.querySelector('.wt-tab-btn.is-active')?.dataset.category || 'all');
     updateCartUI();
@@ -798,6 +798,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === mobileDrawer) mobileDrawer.classList.remove('is-active');
   });
 
+  const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+  mobileServicesToggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const group = mobileServicesToggle.closest('.cw-mobile-service-group');
+    if (group) group.classList.toggle('is-open');
+  });
+
   document.querySelectorAll('.wt-mobile-nav-links a').forEach(link => {
     link.addEventListener('click', () => {
       mobileDrawer?.classList.remove('is-active');
@@ -817,7 +824,335 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Initial render
+  /* =========================================================
+     13. BOOK CARD BOX: BOOK A COATINGWALE SERVICE FORM
+     ========================================================= */
+  const bookForm = document.getElementById('coatingWaleBookForm');
+  const bookSuccessCard = document.getElementById('bookSuccessCard');
+  const bookTimingSelect = document.getElementById('bookTiming');
+  const bookTimingManualInput = document.getElementById('bookTimingManual');
+  const bookResetBtn = document.getElementById('bookResetBtn');
+
+  // Toggle manual timing input when "Choice - (manually)" is selected
+  bookTimingSelect?.addEventListener('change', () => {
+    if (bookTimingSelect.value === 'Choice - (manually)') {
+      if (bookTimingManualInput) {
+        bookTimingManualInput.style.display = 'block';
+        bookTimingManualInput.required = true;
+        bookTimingManualInput.focus();
+      }
+    } else {
+      if (bookTimingManualInput) {
+        bookTimingManualInput.style.display = 'none';
+        bookTimingManualInput.required = false;
+        bookTimingManualInput.value = '';
+      }
+    }
+  });
+
+  // Handle Book Card Form Submission
+  bookForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const helpWith = document.getElementById('bookHelpWith')?.value;
+    const propertyType = document.getElementById('bookPropertyType')?.value;
+    const area = document.getElementById('bookArea')?.value.trim();
+    let timing = bookTimingSelect?.value;
+    if (timing === 'Choice - (manually)' && bookTimingManualInput?.value.trim()) {
+      timing = `Custom Choice: ${bookTimingManualInput.value.trim()}`;
+    }
+    const specifics = document.getElementById('bookSpecifics')?.value.trim();
+    const fullName = document.getElementById('bookFullName')?.value.trim();
+    const mobile = document.getElementById('bookMobile')?.value.trim();
+    const remark = document.getElementById('bookRemark')?.value.trim();
+
+    if (!helpWith || !propertyType || !area || !timing || !specifics || !fullName || !mobile) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Generate unique reference ID
+    const refCode = `CW-BK-${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // Build booking object
+    const bookingEntry = {
+      referenceId: refCode,
+      createdAt: new Date().toISOString(),
+      serviceRequired: helpWith,
+      propertyType: propertyType,
+      area: area,
+      preferredTiming: timing,
+      bookingScope: specifics,
+      customer: {
+        fullName: fullName,
+        mobile: mobile,
+        remark: remark || 'None'
+      },
+      status: 'Received • Awaiting Dispatch'
+    };
+
+    // Store in localStorage
+    try {
+      const existing = JSON.parse(localStorage.getItem('wt_coatingwale_service_bookings') || '[]');
+      existing.unshift(bookingEntry);
+      localStorage.setItem('wt_coatingwale_service_bookings', JSON.stringify(existing));
+    } catch (err) {
+      console.warn('LocalStorage error:', err);
+    }
+
+    // Populate Success Card
+    const refTag = document.getElementById('bookRefTag');
+    if (refTag) refTag.textContent = `Ref: ${refCode}`;
+
+    const successName = document.getElementById('successName');
+    if (successName) successName.textContent = fullName;
+
+    const successMobile = document.getElementById('successMobile');
+    if (successMobile) successMobile.textContent = mobile;
+
+    const summaryTable = document.getElementById('bookSummaryTable');
+    if (summaryTable) {
+      summaryTable.innerHTML = `
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Service Required:</span>
+          <span class="cw-book-summary-value">${helpWith}</span>
+        </div>
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Property Type:</span>
+          <span class="cw-book-summary-value">${propertyType}</span>
+        </div>
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Your Area:</span>
+          <span class="cw-book-summary-value">${area}</span>
+        </div>
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Preferred Timing:</span>
+          <span class="cw-book-summary-value">${timing}</span>
+        </div>
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Booking Scope:</span>
+          <span class="cw-book-summary-value">${specifics}</span>
+        </div>
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Customer Contact:</span>
+          <span class="cw-book-summary-value">${fullName} (${mobile})</span>
+        </div>
+        ${remark ? `
+        <div class="cw-book-summary-row">
+          <span class="cw-book-summary-label">Remarks:</span>
+          <span class="cw-book-summary-value">${remark}</span>
+        </div>
+        ` : ''}
+      `;
+    }
+
+    // Hide form, show success confirmation card
+    bookForm.style.display = 'none';
+    if (bookSuccessCard) {
+      bookSuccessCard.classList.add('is-active');
+    }
+
+    showToast(`Booking request ${refCode} received successfully!`);
+    if (window.lucide) window.lucide.createIcons();
+  });
+
+  // Reset Button
+  bookResetBtn?.addEventListener('click', () => {
+    bookForm.reset();
+    if (bookTimingManualInput) {
+      bookTimingManualInput.style.display = 'none';
+      bookTimingManualInput.required = false;
+    }
+    if (bookSuccessCard) {
+      bookSuccessCard.classList.remove('is-active');
+    }
+    bookForm.style.display = 'flex';
+  });
+
+  /* =========================================================
+     14. SCROLL-BASED INTERACTIONS & ANIMATIONS
+     ========================================================= */
+  const scrollProgressBar = document.getElementById('scrollProgressBar');
+  const headerStickyWrapper = document.getElementById('headerStickyWrapper');
+  const floatingBookPill = document.getElementById('floatingBookPill');
+  const backToTopBtn = document.getElementById('backToTopBtn');
+  const bookServiceSection = document.getElementById('bookServiceSection');
+
+  let scrollTicking = false;
+
+  function handleScroll() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    // 1. Update Hairline Scroll Progress Bar
+    if (scrollProgressBar) {
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      scrollProgressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+    }
+
+    // 2. Dynamic Sticky Header State
+    if (headerStickyWrapper) {
+      if (scrollTop > 30) {
+        headerStickyWrapper.classList.add('is-scrolled');
+      } else {
+        headerStickyWrapper.classList.remove('is-scrolled');
+      }
+    }
+
+    // 3. Floating Quick Book Pill & Back To Top Visibility
+    if (scrollTop > 350) {
+      if (backToTopBtn) backToTopBtn.classList.add('is-visible');
+
+      // If user is already viewing the booking section, hide the floating pill
+      let isViewingBooking = false;
+      if (bookServiceSection) {
+        const rect = bookServiceSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80 && rect.bottom > 80) {
+          isViewingBooking = true;
+        }
+      }
+
+      if (floatingBookPill) {
+        if (isViewingBooking) {
+          floatingBookPill.classList.remove('is-visible');
+        } else {
+          floatingBookPill.classList.add('is-visible');
+        }
+      }
+    } else {
+      if (floatingBookPill) floatingBookPill.classList.remove('is-visible');
+      if (backToTopBtn) backToTopBtn.classList.remove('is-visible');
+    }
+
+    scrollTicking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(handleScroll);
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // Back To Top Click Action
+  backToTopBtn?.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
+
+  // Smooth Gliding for Anchor Links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        const headerOffset = 70;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Pre-fill Service from Service Journey Cards
+  document.querySelectorAll('[data-prefill-service]').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      const serviceVal = this.dataset.prefillService;
+      const selectElem = document.getElementById('bookHelpWith');
+      if (selectElem && serviceVal) {
+        selectElem.value = serviceVal;
+        selectElem.dispatchEvent(new Event('change'));
+        
+        // Highlight dropdown briefly
+        selectElem.style.borderColor = '#173FD6';
+        selectElem.style.backgroundColor = '#f0f4ff';
+        setTimeout(() => {
+          selectElem.style.borderColor = '';
+          selectElem.style.backgroundColor = '';
+        }, 1800);
+      }
+    });
+  });
+
+  // 4. Scroll-Triggered Reveal (Intersection Observer)
+  function initScrollReveal() {
+    const revealTargets = document.querySelectorAll(
+      '.wt-pillar-item, .wt-testimonial-card, .wt-mosaic-card, .wt-product-card, .wt-editorial-grid, .cw-care-circle-card, .cw-book-card-box, .cw-journey-card, .section-headline'
+    );
+
+    revealTargets.forEach(el => el.classList.add('cw-scroll-reveal'));
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealTargets.forEach(el => observer.observe(el));
+    } else {
+      // Fallback for older browsers
+      revealTargets.forEach(el => el.classList.add('is-revealed'));
+    }
+  }
+
+  // 5. Animated Counter Numbers on Scroll
+  function initCounterAnimations() {
+    const counterElements = document.querySelectorAll('[data-counter-target]');
+    if (!counterElements.length || !('IntersectionObserver' in window)) return;
+
+    const counterObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.counterTarget, 10);
+          const suffix = el.dataset.counterSuffix || '';
+          const prefix = el.dataset.counterPrefix || '';
+          const duration = 1200;
+          const startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const currentVal = Math.round(target * ease);
+            el.textContent = `${prefix}${currentVal}${suffix}`;
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              el.textContent = `${prefix}${target}${suffix}`;
+            }
+          }
+
+          requestAnimationFrame(updateCounter);
+          obs.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counterElements.forEach(el => counterObserver.observe(el));
+  }
+
+  // Initial calls
   renderProducts('all');
   updateCartUI();
+  handleScroll();
+  initScrollReveal();
+  initCounterAnimations();
+  if (window.lucide) window.lucide.createIcons();
 });
