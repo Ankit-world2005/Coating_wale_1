@@ -1,860 +1,823 @@
-/**
- * NANOVEIL™ - Dynamic Motion, Sensitivity & Interaction Engine
- */
+/* ===================================================================
+   INVISEL™ × WONDER THEME INTERIOR - MAIN JAVASCRIPT
+   Interactions, Cart Drawer, Lookbook Hotspots, Hydrophobic Simulator,
+   Hero Slideshow, Tabs, and Quick View
+   =================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCursorAura();
-  initHeaderScroll();
-  initTiltCards();
-  initBeforeAfterSlider();
-  initHydrophobicSimulator();
-  initSurfaceTabs();
-  initCalculator();
-  initFAQAccordion();
-  initBookingModal();
-  initScrollAnimations();
-  initProductFilters();
-  initCart();
-  initPinterestHero();
-});
-
-/* ----------------------------------------------------
-   1. Sensitive Cursor Aura
----------------------------------------------------- */
-function initCursorAura() {
-  const aura = document.querySelector('.cursor-aura');
-  if (!aura) return;
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let currentX = mouseX;
-  let currentY = mouseY;
-
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
-
-  function renderAura() {
-    currentX += (mouseX - currentX) * 0.12;
-    currentY += (mouseY - currentY) * 0.12;
-    aura.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) translate(-50%, -50%)`;
-    requestAnimationFrame(renderAura);
+  // Lucide Icons initialization
+  if (window.lucide) {
+    window.lucide.createIcons();
   }
-  renderAura();
-}
 
-/* ----------------------------------------------------
-   2. Header Scroll Effect
----------------------------------------------------- */
-function initHeaderScroll() {
-  const header = document.querySelector('.header');
-  if (!header) return;
+  /* =========================================================
+     1. CATALOG DATA & STATE
+     ========================================================= */
+  const PRODUCTS = [
+    {
+      id: 'inv-fabric-shield',
+      name: 'Invisel™ Hydrophobic Fabric & Boucle Shield',
+      category: 'fabric',
+      categoryLabel: 'Living Room & Upholstery',
+      price: 1899,
+      comparePrice: 2499,
+      badge: 'Bestseller',
+      badgeType: 'bestseller',
+      rating: 4.9,
+      reviewsCount: 142,
+      primaryImage: 'assets/images/hero-sofa.jpg',
+      secondaryImage: 'assets/images/macro-liquid.jpg',
+      description: 'Medical-grade SiO2 nanocoating for curved boucle sofas, velvet armchairs, suede drapes, and dining fabric. 100% invisible and breathable with zero stiffness.',
+      coverage: 'Covers up to 120 sq. ft (Full 3-Seater Sofa + 2 Armchairs)',
+      variants: [
+        { size: '250ml Spray', price: 1299, comparePrice: 1699 },
+        { size: '500ml Pro', price: 1899, comparePrice: 2499, default: true },
+        { size: '1L Refill', price: 3299, comparePrice: 4299 }
+      ]
+    },
+    {
+      id: 'inv-marble-armor',
+      name: 'Invisel™ Calacatta & Honed Marble Armor',
+      category: 'marble',
+      categoryLabel: 'Dining & Natural Stone',
+      price: 2199,
+      comparePrice: 2899,
+      badge: 'Trending',
+      badgeType: 'trending',
+      rating: 5.0,
+      reviewsCount: 98,
+      primaryImage: 'assets/images/marble-glass.jpg',
+      secondaryImage: 'assets/images/technician.jpg',
+      description: 'Invisible penetrating barrier for Italian marble, quartzite, granite, and travertine. Repels red wine, coffee, oils, turmeric, and acid etching without altering natural sheen.',
+      coverage: 'Covers up to 150 sq. ft (8-Seater Dining Table + Island Counter)',
+      variants: [
+        { size: '250ml Spray', price: 1499, comparePrice: 1999 },
+        { size: '500ml Pro', price: 2199, comparePrice: 2899, default: true },
+        { size: '1L Refill', price: 3799, comparePrice: 4999 }
+      ]
+    },
+    {
+      id: 'inv-glass-barrier',
+      name: 'Invisel™ Crystal Clear Glass & Shower Guard',
+      category: 'glass',
+      categoryLabel: 'Bath & Architectural Glass',
+      price: 1499,
+      comparePrice: 1999,
+      badge: 'Eco Friendly',
+      badgeType: 'eco',
+      rating: 4.8,
+      reviewsCount: 76,
+      primaryImage: 'assets/images/marble-glass.jpg',
+      secondaryImage: 'assets/images/macro-liquid.jpg',
+      description: 'Ultra-slick hydrophobic glass sealant. Prevents water spots, limescale buildup, soap scum, and fog on frameless shower glass, mirrors, and floor-to-ceiling glass partitions.',
+      coverage: 'Covers up to 200 sq. ft (2 Full Shower Enclosures + Mirrors)',
+      variants: [
+        { size: '250ml Spray', price: 1099, comparePrice: 1499 },
+        { size: '500ml Pro', price: 1499, comparePrice: 1999, default: true },
+        { size: '1L Refill', price: 2599, comparePrice: 3499 }
+      ]
+    },
+    {
+      id: 'inv-leather-wood',
+      name: 'Invisel™ Top-Grain Leather & Timber Glaze',
+      category: 'fabric',
+      categoryLabel: 'Leather & Handcrafted Wood',
+      price: 1999,
+      comparePrice: 2599,
+      badge: 'Limited',
+      badgeType: 'limited',
+      rating: 4.9,
+      reviewsCount: 64,
+      primaryImage: 'assets/images/hero-sofa.jpg',
+      secondaryImage: 'assets/images/technician.jpg',
+      description: 'Deep conditioning ceramic nano-sealant for aniline leather, nubuck, oak, and teak wood. Blocks UV fading, dye transfer from jeans, and liquid seepage while nourishing fibers.',
+      coverage: 'Covers up to 100 sq. ft (2 Leather Lounge Chairs or King Headboard)',
+      variants: [
+        { size: '250ml Spray', price: 1399, comparePrice: 1799 },
+        { size: '500ml Pro', price: 1999, comparePrice: 2599, default: true },
+        { size: '1L Refill', price: 3499, comparePrice: 4499 }
+      ]
+    },
+    {
+      id: 'inv-master-bundle',
+      name: 'The Full Interior Sanctuary™ Master Kit',
+      category: 'bundles',
+      categoryLabel: 'Complete Home Suite',
+      price: 4999,
+      comparePrice: 6899,
+      badge: 'Sale',
+      badgeType: 'sale',
+      rating: 5.0,
+      reviewsCount: 215,
+      primaryImage: 'assets/images/invisel-lineup.jpg',
+      secondaryImage: 'assets/images/macro-liquid.jpg',
+      description: 'Complete 4-bottle luxury care arsenal: Fabric & Boucle Shield (500ml), Marble Armor (500ml), Glass Guard (500ml), and Leather Glaze (500ml) with 4 microfiber applicators.',
+      coverage: 'Complete 3BHK / 4BHK Luxury Apartment Surface Protection',
+      variants: [
+        { size: 'Pro Set (4x 500ml)', price: 4999, comparePrice: 6899, default: true },
+        { size: 'Estate Villa Set (4x 1L)', price: 8499, comparePrice: 11999 }
+      ]
+    },
+    {
+      id: 'inv-rug-carpet',
+      name: 'Invisel™ Deep-Fiber Wool Rug & Carpet Guard',
+      category: 'fabric',
+      categoryLabel: 'Textiles & Rugs',
+      price: 1699,
+      comparePrice: 2299,
+      badge: 'Trending',
+      badgeType: 'trending',
+      rating: 4.8,
+      reviewsCount: 53,
+      primaryImage: 'assets/images/hero-sofa.jpg',
+      secondaryImage: 'assets/images/uncoated-stain.jpg',
+      description: 'Penetrating nano barrier for hand-knotted Persian rugs, Kashmiri silk carpets, and high-traffic sisal runners. Liquid spills form beads on surface fibers for effortless wipe-off.',
+      coverage: 'Covers up to 160 sq. ft (Large 9x12 Living Room Area Rug)',
+      variants: [
+        { size: '500ml Pro', price: 1699, comparePrice: 2299, default: true },
+        { size: '1L Refill', price: 2999, comparePrice: 3999 }
+      ]
+    },
+    {
+      id: 'inv-countertop-shield',
+      name: 'Invisel™ Kitchen Quartz & Granite Bio-Pel',
+      category: 'marble',
+      categoryLabel: 'Culinary Surfaces',
+      price: 1899,
+      comparePrice: 2499,
+      badge: 'Eco Friendly',
+      badgeType: 'eco',
+      rating: 4.9,
+      reviewsCount: 89,
+      primaryImage: 'assets/images/marble-glass.jpg',
+      secondaryImage: 'assets/images/technician.jpg',
+      description: 'Food-safe certified oleophobic nanocoating for cooking islands and dining counters. Resists hot oil splatters, mustard, beetroot, and spice stains without toxic sealers.',
+      coverage: 'Covers up to 120 sq. ft (Standard Kitchen Island + Backsplash)',
+      variants: [
+        { size: '250ml Spray', price: 1299, comparePrice: 1699 },
+        { size: '500ml Pro', price: 1899, comparePrice: 2499, default: true }
+      ]
+    },
+    {
+      id: 'inv-outdoor-patio',
+      name: 'Invisel™ Weather-Proof Patio & Teak Shield',
+      category: 'bundles',
+      categoryLabel: 'Balcony & Outdoor Living',
+      price: 2499,
+      comparePrice: 3299,
+      badge: 'Limited',
+      badgeType: 'limited',
+      rating: 4.9,
+      reviewsCount: 41,
+      primaryImage: 'assets/images/invisel-lineup.jpg',
+      secondaryImage: 'assets/images/macro-liquid.jpg',
+      description: 'High-UV resistance coating formulated for exterior Sunbrella fabrics, rattan furniture, and outdoor deck stone. Repels torrential monsoon rains, bird droppings, and algae.',
+      coverage: 'Covers up to 180 sq. ft (Outdoor Sectional + 6 Deck Chairs)',
+      variants: [
+        { size: '500ml Pro', price: 2499, comparePrice: 3299, default: true },
+        { size: '1L Refill', price: 4199, comparePrice: 5499 }
+      ]
+    }
+  ];
 
+  let cart = JSON.parse(localStorage.getItem('wt_invisel_cart') || '[]');
+  let currency = localStorage.getItem('wt_invisel_currency') || 'INR';
+  const CURRENCY_RATES = { INR: 1, USD: 0.012 };
+  const CURRENCY_SYMBOLS = { INR: '₹', USD: '$' };
+  const FREE_SHIPPING_THRESHOLD = 999;
+
+  function formatPrice(amountInINR) {
+    if (currency === 'USD') {
+      const usd = Math.round(amountInINR * CURRENCY_RATES.USD);
+      return `$${usd}`;
+    }
+    return `₹${amountInINR.toLocaleString('en-IN')}`;
+  }
+
+  function saveCart() {
+    localStorage.setItem('wt_invisel_cart', JSON.stringify(cart));
+    updateCartUI();
+  }
+
+  function showToast(message) {
+    let toast = document.getElementById('wtToast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'wtToast';
+      toast.className = 'wt-toast';
+      document.body.appendChild(toast);
+    }
+    toast.innerHTML = `<i data-lucide="check-circle" style="width: 18px; height: 18px;"></i> <span>${message}</span>`;
+    if (window.lucide) window.lucide.createIcons();
+    toast.classList.add('is-active');
+    setTimeout(() => {
+      toast.classList.remove('is-active');
+    }, 3200);
+  }
+
+  /* =========================================================
+     2. STICKY HEADER SCROLL LISTENER
+     ========================================================= */
+  const headerWrapper = document.querySelector('.wt-header-sticky-wrapper');
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
-      header.classList.add('scrolled');
+      headerWrapper?.classList.add('is-scrolled');
     } else {
-      header.classList.remove('scrolled');
+      headerWrapper?.classList.remove('is-scrolled');
     }
-  }, { passive: true });
-
-  // Mobile Menu Toggle
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const navLinks = document.querySelector('.nav-links');
-  if (mobileBtn && navLinks) {
-    mobileBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-      });
-    });
-  }
-}
-
-/* ----------------------------------------------------
-   3. 3D Sensitive Card Tilt
----------------------------------------------------- */
-function initTiltCards() {
-  const cards = document.querySelectorAll('.tilt-card');
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -9;
-      const rotateY = ((x - centerX) / centerX) * 9;
-      
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-      card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-    });
-
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'none';
-    });
   });
-}
 
-/* ----------------------------------------------------
-   4. Before & After Split Comparison Slider
----------------------------------------------------- */
-function initBeforeAfterSlider() {
-  const card = document.querySelector('.comparison-card');
-  const afterBox = document.querySelector('.comparison-after-box');
-  const handle = document.querySelector('.comparison-handle');
-  if (!card || !afterBox || !handle) return;
+  /* =========================================================
+     3. HERO SLIDESHOW (Shopify Wonder Theme Style)
+     ========================================================= */
+  const heroSlider = document.getElementById('heroSlider');
+  const heroTrack = document.getElementById('heroTrack');
+  const heroSlides = document.querySelectorAll('.wt-hero-slide');
+  const heroIndicator = document.getElementById('heroSlideIndicator');
+  const heroPrevBtn = document.getElementById('heroPrevBtn');
+  const heroNextBtn = document.getElementById('heroNextBtn');
 
-  let isDragging = false;
+  let currentSlide = 0;
+  let heroInterval = null;
 
-  function updateSlider(clientX) {
-    const rect = card.getBoundingClientRect();
-    let x = clientX - rect.left;
-    if (x < 0) x = 0;
-    if (x > rect.width) x = rect.width;
+  function updateHeroSlide(index) {
+    if (!heroTrack || heroSlides.length === 0) return;
+    currentSlide = (index + heroSlides.length) % heroSlides.length;
+    heroTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
     
-    const percentage = (x / rect.width) * 100;
-    afterBox.style.width = `${percentage}%`;
-    handle.style.left = `${percentage}%`;
-  }
-
-  // Mouse Events
-  card.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    updateSlider(e.clientX);
-  });
-
-  window.addEventListener('mouseup', () => {
-    isDragging = false;
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    updateSlider(e.clientX);
-  });
-
-  // Touch Events
-  card.addEventListener('touchstart', (e) => {
-    isDragging = true;
-    updateSlider(e.touches[0].clientX);
-  }, { passive: true });
-
-  window.addEventListener('touchend', () => {
-    isDragging = false;
-  });
-
-  window.addEventListener('touchmove', (e) => {
-    if (!isDragging) return;
-    updateSlider(e.touches[0].clientX);
-  }, { passive: true });
-}
-
-/* ----------------------------------------------------
-   5. Interactive Hydrophobic Simulator (Canvas Droplets)
----------------------------------------------------- */
-function initHydrophobicSimulator() {
-  const canvas = document.getElementById('spillCanvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  
-  let width, height;
-  function resize() {
-    const parent = canvas.parentElement;
-    width = canvas.width = parent.clientWidth;
-    height = canvas.height = parent.clientHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // Droplet color profiles
-  const LIQUIDS = {
-    water: {
-      color: 'rgba(56, 189, 248, 0.55)',
-      rim: 'rgba(255, 255, 255, 0.85)',
-      highlight: 'rgba(255, 255, 255, 0.95)',
-      shadow: 'rgba(0, 0, 0, 0.45)'
-    },
-    coffee: {
-      color: 'rgba(101, 51, 19, 0.82)',
-      rim: 'rgba(180, 110, 60, 0.9)',
-      highlight: 'rgba(255, 220, 180, 0.9)',
-      shadow: 'rgba(20, 10, 5, 0.6)'
-    },
-    wine: {
-      color: 'rgba(136, 19, 55, 0.85)',
-      rim: 'rgba(219, 39, 119, 0.9)',
-      highlight: 'rgba(255, 200, 220, 0.95)',
-      shadow: 'rgba(25, 4, 10, 0.6)'
-    },
-    chai: {
-      color: 'rgba(194, 112, 45, 0.85)',
-      rim: 'rgba(245, 175, 100, 0.9)',
-      highlight: 'rgba(255, 245, 210, 0.95)',
-      shadow: 'rgba(30, 15, 5, 0.55)'
-    }
-  };
-
-  let currentLiquid = 'coffee';
-  let droplets = [];
-  let isPointerDown = false;
-  let gravityX = 0;
-  let gravityY = 0.15;
-
-  class Droplet {
-    constructor(x, y, radius, type) {
-      this.x = x;
-      this.y = y;
-      this.radius = radius || Math.random() * 12 + 10;
-      this.vx = (Math.random() - 0.5) * 3;
-      this.vy = (Math.random() - 0.5) * 3;
-      this.type = type || currentLiquid;
-      this.profile = LIQUIDS[this.type];
-      this.restitution = 0.65; // High bounce because of hydrophobic barrier
-      this.friction = 0.985;
-      this.contactAngle = 155; // >150° superhydrophobic bead
-    }
-
-    update() {
-      this.vx += gravityX;
-      this.vy += gravityY;
-      
-      this.vx *= this.friction;
-      this.vy *= this.friction;
-
-      this.x += this.vx;
-      this.y += this.vy;
-
-      // Bounce off walls (zero friction surface)
-      if (this.x - this.radius < 0) {
-        this.x = this.radius;
-        this.vx *= -this.restitution;
-      } else if (this.x + this.radius > width) {
-        this.x = width - this.radius;
-        this.vx *= -this.restitution;
-      }
-
-      if (this.y - this.radius < 0) {
-        this.y = this.radius;
-        this.vy *= -this.restitution;
-      } else if (this.y + this.radius > height) {
-        this.y = height - this.radius;
-        this.vy *= -this.restitution;
-        // Lotus rolling micro-bounce
-        if (Math.abs(this.vy) < 0.2) this.vy = 0;
-      }
-    }
-
-    draw() {
-      ctx.save();
-      
-      // 1. Shadow underneath the suspended sphere
-      ctx.beginPath();
-      ctx.ellipse(this.x, this.y + this.radius * 0.75, this.radius * 0.9, this.radius * 0.35, 0, 0, Math.PI * 2);
-      ctx.fillStyle = this.profile.shadow;
-      ctx.filter = 'blur(4px)';
-      ctx.fill();
-      ctx.filter = 'none';
-
-      // 2. Liquid body (near-perfect sphere due to surface tension)
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.profile.color;
-      ctx.fill();
-
-      // 3. Meniscus rim
-      ctx.lineWidth = 1.5;
-      ctx.strokeStyle = this.profile.rim;
-      ctx.stroke();
-
-      // 4. Glossy Specular Reflection (high-tension shine)
-      ctx.beginPath();
-      ctx.ellipse(this.x - this.radius * 0.32, this.y - this.radius * 0.35, this.radius * 0.32, this.radius * 0.18, -Math.PI / 4, 0, Math.PI * 2);
-      ctx.fillStyle = this.profile.highlight;
-      ctx.fill();
-
-      ctx.restore();
-    }
-  }
-
-  // Pre-populate with a few aesthetic drops
-  function seedDrops() {
-    droplets = [];
-    for (let i = 0; i < 9; i++) {
-      droplets.push(new Droplet(
-        width * 0.2 + Math.random() * width * 0.6,
-        height * 0.2 + Math.random() * height * 0.4,
-        Math.random() * 16 + 12,
-        ['coffee', 'wine', 'water', 'chai'][i % 4]
-      ));
-    }
-  }
-  seedDrops();
-
-  // Spawning droplets on click/drag
-  function spawnAt(clientX, clientY) {
-    const rect = canvas.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-    if (x >= 0 && x <= width && y >= 0 && y <= height) {
-      droplets.push(new Droplet(x, y, Math.random() * 12 + 10, currentLiquid));
-      // Cap at 45 droplets for 60fps performance
-      if (droplets.length > 45) droplets.shift();
-    }
-  }
-
-  canvas.addEventListener('mousedown', (e) => {
-    isPointerDown = true;
-    spawnAt(e.clientX, e.clientY);
-  });
-
-  window.addEventListener('mouseup', () => {
-    isPointerDown = false;
-  });
-
-  canvas.addEventListener('mousemove', (e) => {
-    // Dynamic tilt sensitivity: tilt canvas gravity slightly toward mouse!
-    const rect = canvas.getBoundingClientRect();
-    const nx = (e.clientX - rect.left) / width - 0.5;
-    const ny = (e.clientY - rect.top) / height - 0.5;
-    gravityX = nx * 0.4;
-    gravityY = ny * 0.4 + 0.1;
-
-    if (isPointerDown) {
-      spawnAt(e.clientX, e.clientY);
-    }
-  });
-
-  // Touch
-  canvas.addEventListener('touchstart', (e) => {
-    spawnAt(e.touches[0].clientX, e.touches[0].clientY);
-  }, { passive: true });
-
-  // Liquid type selector buttons
-  const liquidBtns = document.querySelectorAll('.liquid-btn');
-  liquidBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      liquidBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentLiquid = btn.dataset.liquid;
-    });
-  });
-
-  // Clear Canvas Button
-  const clearBtn = document.getElementById('clearSimBtn');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      droplets = [];
-    });
-  }
-
-  // Reset Canvas Button
-  const resetBtn = document.getElementById('resetSimBtn');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      seedDrops();
-    });
-  }
-
-  // Animation Loop
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-
-    // Subtle nanocoated surface micro-texture
-    ctx.fillStyle = '#0b1921';
-    ctx.fillRect(0, 0, width, height);
-
-    // Subtle weave grid lines
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
-    ctx.lineWidth = 1;
-    for (let x = 0; x < width; x += 32) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, height);
-      ctx.stroke();
-    }
-    for (let y = 0; y < height; y += 32) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(width, y);
-      ctx.stroke();
-    }
-
-    // Merge check & updates
-    for (let i = 0; i < droplets.length; i++) {
-      for (let j = i + 1; j < droplets.length; j++) {
-        const d1 = droplets[i];
-        const d2 = droplets[j];
-        const dx = d2.x - d1.x;
-        const dy = d2.y - d1.y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        
-        // Coalescence if droplets touch (surface tension merge)
-        if (dist < (d1.radius + d2.radius) * 0.75) {
-          const newRadius = Math.min(32, Math.sqrt(d1.radius * d1.radius + d2.radius * d2.radius));
-          d1.radius = newRadius;
-          d1.vx = (d1.vx + d2.vx) * 0.5;
-          d1.vy = (d1.vy + d2.vy) * 0.5;
-          droplets.splice(j, 1);
-          j--;
-        }
-      }
-    }
-
-    droplets.forEach(d => {
-      d.update();
-      d.draw();
+    heroSlides.forEach((slide, idx) => {
+      slide.classList.toggle('is-active', idx === currentSlide);
     });
 
-    requestAnimationFrame(animate);
-  }
-  animate();
-}
-
-/* ----------------------------------------------------
-   6. Surface Showcase Tabs
----------------------------------------------------- */
-function initSurfaceTabs() {
-  const tabs = document.querySelectorAll('.tab-btn');
-  const contents = document.querySelectorAll('.surface-tab-content');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.dataset.target;
-
-      tabs.forEach(t => t.classList.remove('active'));
-      contents.forEach(c => c.classList.remove('active'));
-
-      tab.classList.add('active');
-      const targetContent = document.getElementById(target);
-      if (targetContent) targetContent.classList.add('active');
-    });
-  });
-}
-
-/* ----------------------------------------------------
-   7. Interactive Room & Warranty Estimator
----------------------------------------------------- */
-function initCalculator() {
-  const roomChips = document.querySelectorAll('.calc-chip[data-room]');
-  const surfaceChips = document.querySelectorAll('.calc-chip[data-surface]');
-  const amountEl = document.getElementById('calcEstimatedPrice');
-  const warrantyEl = document.getElementById('calcWarranty');
-  const savingsEl = document.getElementById('calcSavings');
-
-  let baseRate = 8999;
-  let multiplier = 1;
-  let selectedSurfacesCount = 3;
-
-  function recalculate() {
-    const total = Math.round(baseRate * multiplier * (selectedSurfacesCount * 0.35 + 0.65));
-    const savings = Math.round(total * 1.8);
-    
-    if (amountEl) {
-      amountEl.innerHTML = `<span>₹</span>${total.toLocaleString('en-IN')}`;
-    }
-    if (savingsEl) {
-      savingsEl.textContent = `₹${savings.toLocaleString('en-IN')}`;
+    if (heroIndicator) {
+      heroIndicator.textContent = `0${currentSlide + 1} / 0${heroSlides.length}`;
     }
   }
 
-  roomChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      roomChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      multiplier = parseFloat(chip.dataset.multiplier) || 1;
-      
-      const warranty = chip.dataset.warranty || '1 Year';
-      if (warrantyEl) warrantyEl.textContent = `${warranty} Full Warranty`;
-      
-      recalculate();
-    });
-  });
-
-  surfaceChips.forEach(chip => {
-    chip.addEventListener('click', () => {
-      chip.classList.toggle('active');
-      selectedSurfacesCount = document.querySelectorAll('.calc-chip[data-surface].active').length;
-      if (selectedSurfacesCount === 0) {
-        chip.classList.add('active');
-        selectedSurfacesCount = 1;
-      }
-      recalculate();
-    });
-  });
-
-  recalculate();
-}
-
-/* ----------------------------------------------------
-   8. FAQ Accordion
----------------------------------------------------- */
-function initFAQAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-
-    question.addEventListener('click', () => {
-      const isActive = item.classList.contains('active');
-
-      // Close all others
-      faqItems.forEach(other => {
-        other.classList.remove('active');
-        const otherAnswer = other.querySelector('.faq-answer');
-        if (otherAnswer) otherAnswer.style.maxHeight = null;
-      });
-
-      if (!isActive) {
-        item.classList.add('active');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-      }
-    });
-  });
-}
-
-/* ----------------------------------------------------
-   9. Booking & Consultation Modal
----------------------------------------------------- */
-function initBookingModal() {
-  const modal = document.getElementById('bookingModal');
-  const openBtns = document.querySelectorAll('[data-open-modal="bookingModal"]');
-  const closeBtn = document.querySelector('.modal-close-btn');
-  const form = document.getElementById('bookingForm');
-
-  function openModal() {
-    if (modal) modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  function startHeroAuto() {
+    stopHeroAuto();
+    heroInterval = setInterval(() => {
+      updateHeroSlide(currentSlide + 1);
+    }, 6500);
   }
 
-  function closeModal() {
-    if (modal) modal.classList.remove('active');
-    document.body.style.overflow = '';
+  function stopHeroAuto() {
+    if (heroInterval) clearInterval(heroInterval);
   }
 
-  openBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal();
+  if (heroSlider) {
+    heroSlider.addEventListener('mouseenter', stopHeroAuto);
+    heroSlider.addEventListener('mouseleave', startHeroAuto);
+
+    heroPrevBtn?.addEventListener('click', () => {
+      updateHeroSlide(currentSlide - 1);
+      startHeroAuto();
     });
-  });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
+    heroNextBtn?.addEventListener('click', () => {
+      updateHeroSlide(currentSlide + 1);
+      startHeroAuto();
     });
+
+    startHeroAuto();
   }
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal?.classList.contains('active')) {
-      closeModal();
-    }
-  });
+  /* =========================================================
+     4. RENDER FEATURED PRODUCTS & TAB FILTERING
+     ========================================================= */
+  const productGrid = document.getElementById('productGrid');
+  const tabButtons = document.querySelectorAll('.wt-tab-btn');
 
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const originalText = submitBtn.innerHTML;
-      
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = 'Securing Slot...';
+  function renderProducts(filter = 'all') {
+    if (!productGrid) return;
+    productGrid.innerHTML = '';
 
-      setTimeout(() => {
-        form.innerHTML = `
-          <div style="text-align: center; padding: 24px 0;">
-            <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(45, 212, 191, 0.2); color: #2dd4bf; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 1.8rem;">✓</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Consultation Confirmed!</h3>
-            <p style="color: #94a3b8; font-size: 0.95rem;">Our Senior Surface Specialist will reach out via WhatsApp/Call within 15 minutes with your bespoke protection plan.</p>
-            <button class="btn btn-secondary btn-sm" style="margin-top: 24px;" onclick="location.reload()">Done</button>
+    const filtered = filter === 'all' 
+      ? PRODUCTS 
+      : PRODUCTS.filter(p => p.category === filter);
+
+    filtered.forEach(p => {
+      const defaultVariant = p.variants.find(v => v.default) || p.variants[0];
+      const card = document.createElement('div');
+      card.className = 'wt-product-card';
+      card.dataset.productId = p.id;
+
+      card.innerHTML = `
+        <div class="wt-product-media">
+          <span class="wt-product-badge wt-badge--${p.badgeType}">${p.badge}</span>
+          <img src="${p.primaryImage}" alt="${p.name}" class="wt-product-img" loading="lazy">
+          <img src="${p.secondaryImage}" alt="${p.name} In Use" class="wt-product-img wt-product-img--hover" loading="lazy">
+          <button class="wt-product-quick-view" data-quick-view="${p.id}">Quick View</button>
+        </div>
+        <div class="wt-product-info">
+          <span class="wt-product-category">${p.categoryLabel}</span>
+          <h3 class="wt-product-title">${p.name}</h3>
+          
+          <div class="wt-product-rating">
+            <span class="wt-stars">
+              ${'★'.repeat(Math.floor(p.rating))}
+            </span>
+            <span>${p.rating} (${p.reviewsCount} reviews)</span>
           </div>
-        `;
-      }, 1000);
+
+          <div class="wt-swatches">
+            ${p.variants.map((v, idx) => `
+              <button class="wt-swatch-chip ${idx === 0 || v.default ? 'is-selected' : ''}" 
+                      data-variant-size="${v.size}"
+                      data-variant-price="${v.price}"
+                      data-variant-compare="${v.comparePrice}">
+                ${v.size}
+              </button>
+            `).join('')}
+          </div>
+
+          <div class="wt-product-footer">
+            <div class="wt-price-box">
+              <span class="wt-price-current">${formatPrice(defaultVariant.price)}</span>
+              <span class="wt-price-compare">${formatPrice(defaultVariant.comparePrice)}</span>
+            </div>
+            <button class="wt-add-btn" aria-label="Add to bag" data-add-to-cart="${p.id}">
+              <i data-lucide="plus" style="width: 18px; height: 18px;"></i>
+            </button>
+          </div>
+        </div>
+      `;
+
+      productGrid.appendChild(card);
     });
+
+    if (window.lucide) window.lucide.createIcons();
+    attachCardListeners();
   }
-}
 
-/* ----------------------------------------------------
-   10. Scroll Stagger Reveals
----------------------------------------------------- */
-function initScrollAnimations() {
-  const elements = document.querySelectorAll('.reveal-on-scroll');
-  if (!('IntersectionObserver' in window)) return;
+  function attachCardListeners() {
+    // Swatch selector within card
+    document.querySelectorAll('.wt-product-card').forEach(card => {
+      const swatches = card.querySelectorAll('.wt-swatch-chip');
+      const priceElem = card.querySelector('.wt-price-current');
+      const compareElem = card.querySelector('.wt-price-compare');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+      swatches.forEach(chip => {
+        chip.addEventListener('click', (e) => {
+          e.stopPropagation();
+          swatches.forEach(s => s.classList.remove('is-selected'));
+          chip.classList.add('is-selected');
 
-  elements.forEach(el => observer.observe(el));
-}
-
-/* ----------------------------------------------------
-   11. Product Category Filter
----------------------------------------------------- */
-function initProductFilters() {
-  const filterBtns = document.querySelectorAll('.product-filter-btn');
-  const cards = document.querySelectorAll('.product-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.dataset.filter;
-
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      cards.forEach(card => {
-        const category = card.dataset.category || '';
-        if (filter === 'all' || category.includes(filter)) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeIn 0.35s ease';
-        } else {
-          card.style.display = 'none';
-        }
+          const newPrice = Number(chip.dataset.variantPrice);
+          const newCompare = Number(chip.dataset.variantCompare);
+          priceElem.textContent = formatPrice(newPrice);
+          compareElem.textContent = formatPrice(newCompare);
+        });
       });
     });
-  });
-}
 
-/* ----------------------------------------------------
-   12. Interactive Shopping Cart Drawer
----------------------------------------------------- */
-function initCart() {
-  let cart = [];
+    // Add to cart buttons
+    document.querySelectorAll('[data-add-to-cart]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pId = btn.dataset.addToCart;
+        const card = btn.closest('.wt-product-card');
+        const selectedChip = card ? card.querySelector('.wt-swatch-chip.is-selected') : null;
+        const size = selectedChip ? selectedChip.dataset.variantSize : 'Standard';
+        const price = selectedChip ? Number(selectedChip.dataset.variantPrice) : null;
+        addToCart(pId, size, price);
+      });
+    });
+
+    // Quick View buttons
+    document.querySelectorAll('[data-quick-view]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const pId = btn.dataset.quickView;
+        openQuickView(pId);
+      });
+    });
+  }
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      renderProducts(btn.dataset.category);
+    });
+  });
+
+  /* =========================================================
+     5. CART DRAWER OPERATIONS
+     ========================================================= */
+  const cartDrawerOverlay = document.getElementById('cartDrawerOverlay');
   const openCartBtn = document.getElementById('openCartBtn');
   const closeCartBtn = document.getElementById('closeCartBtn');
-  const overlay = document.getElementById('cartOverlay');
-  const drawer = document.getElementById('cartDrawer');
-  const countBadge = document.getElementById('cartCountBadge');
-  const drawerCount = document.getElementById('cartDrawerCount');
-  const drawerBody = document.getElementById('cartDrawerBody');
-  const drawerFooter = document.getElementById('cartDrawerFooter');
-  const subtotalEl = document.getElementById('cartSubtotal');
-  const toast = document.getElementById('cartToast');
-  const toastMsg = document.getElementById('cartToastMsg');
+  const cartItemsContainer = document.getElementById('cartItemsContainer');
+  const cartSubtotalElem = document.getElementById('cartSubtotal');
+  const cartBadgeElem = document.getElementById('cartBadge');
+  const shippingMeterFill = document.getElementById('shippingMeterFill');
+  const shippingMeterText = document.getElementById('shippingMeterText');
   const checkoutBtn = document.getElementById('checkoutBtn');
-  const emptyCartShopBtn = document.getElementById('emptyCartShopBtn');
 
-  function openCart() {
-    if (overlay) overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
+  function openCartDrawer() {
+    cartDrawerOverlay?.classList.add('is-active');
   }
 
-  function closeCart() {
-    if (overlay) overlay.classList.remove('active');
-    document.body.style.overflow = '';
+  function closeCartDrawer() {
+    cartDrawerOverlay?.classList.remove('is-active');
   }
 
-  if (openCartBtn) openCartBtn.addEventListener('click', openCart);
-  if (closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
-  if (overlay) {
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeCart();
-    });
-  }
-  if (emptyCartShopBtn) {
-    emptyCartShopBtn.addEventListener('click', closeCart);
-  }
+  openCartBtn?.addEventListener('click', openCartDrawer);
+  closeCartBtn?.addEventListener('click', closeCartDrawer);
+  cartDrawerOverlay?.addEventListener('click', (e) => {
+    if (e.target === cartDrawerOverlay) closeCartDrawer();
+  });
 
-  function showToast(title) {
-    if (!toast) return;
-    if (toastMsg) toastMsg.textContent = `Added "${title}" to cart!`;
-    toast.classList.add('active');
-    setTimeout(() => {
-      toast.classList.remove('active');
-    }, 2400);
+  function addToCart(productId, size = null, customPrice = null) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (!product) return;
+
+    const variant = product.variants.find(v => v.size === size) || product.variants[0];
+    const finalSize = size || variant.size;
+    const finalPrice = customPrice || variant.price;
+
+    const existingIndex = cart.findIndex(item => item.id === productId && item.size === finalSize);
+    if (existingIndex > -1) {
+      cart[existingIndex].qty += 1;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        size: finalSize,
+        price: finalPrice,
+        image: product.primaryImage,
+        qty: 1
+      });
+    }
+
+    saveCart();
+    showToast(`Added ${product.name} (${finalSize}) to your bag`);
+    openCartDrawer();
   }
 
   function updateCartUI() {
-    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+    const totalCount = cart.reduce((acc, item) => acc + item.qty, 0);
+    const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
 
-    if (countBadge) countBadge.textContent = totalItems;
-    if (drawerCount) drawerCount.textContent = totalItems;
-    if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
-
-    if (cart.length === 0) {
-      if (drawerBody) {
-        drawerBody.innerHTML = `
-          <div class="cart-empty-message">
-            <div style="font-size: 2.5rem; opacity: 0.3; margin-bottom: 12px;">🛒</div>
-            <p>Your cart is currently empty.</p>
-            <a href="#products" class="btn btn-secondary btn-sm" style="margin-top: 14px;" onclick="document.getElementById('cartOverlay').classList.remove('active'); document.body.style.overflow='';">Explore Protectors</a>
-          </div>
-        `;
-      }
-      if (drawerFooter) drawerFooter.style.display = 'none';
-    } else {
-      if (drawerFooter) drawerFooter.style.display = 'block';
-      if (drawerBody) {
-        drawerBody.innerHTML = cart.map(item => `
-          <div class="cart-item-row" data-id="${item.id}">
-            <img src="${item.img}" alt="${item.title}" class="cart-item-img">
-            <div class="cart-item-info">
-              <h4 class="cart-item-title">${item.title}</h4>
-              <div class="cart-item-price">₹${item.price.toLocaleString('en-IN')} × ${item.qty}</div>
-            </div>
-            <button class="cart-item-remove" data-remove="${item.id}" title="Remove item">
-              ✕
-            </button>
-          </div>
-        `).join('');
-
-        // Wire remove buttons
-        drawerBody.querySelectorAll('[data-remove]').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const id = btn.dataset.remove;
-            cart = cart.filter(x => x.id !== id);
-            updateCartUI();
-          });
-        });
-      }
+    if (cartBadgeElem) {
+      cartBadgeElem.textContent = totalCount;
+      cartBadgeElem.style.display = totalCount > 0 ? 'flex' : 'none';
     }
-  }
 
-  // Add to cart buttons on products
-  const addButtons = document.querySelectorAll('.btn-add-cart');
-  addButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const id = btn.dataset.id;
-      const title = btn.dataset.title;
-      const price = parseInt(btn.dataset.price, 10);
-      const img = btn.dataset.img;
+    if (cartSubtotalElem) {
+      cartSubtotalElem.textContent = formatPrice(subtotal);
+    }
 
-      const existing = cart.find(x => x.id === id);
-      if (existing) {
-        existing.qty += 1;
+    // Free shipping calculation
+    if (shippingMeterFill && shippingMeterText) {
+      const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal);
+      const percentage = Math.min(100, Math.round((subtotal / FREE_SHIPPING_THRESHOLD) * 100));
+      shippingMeterFill.style.width = `${percentage}%`;
+
+      if (subtotal === 0) {
+        shippingMeterText.innerHTML = `Add <strong>${formatPrice(FREE_SHIPPING_THRESHOLD)}</strong> to unlock Free Express Delivery across India`;
+      } else if (remaining > 0) {
+        shippingMeterText.innerHTML = `Add <strong>${formatPrice(remaining)}</strong> more to enjoy Free White-Glove Shipping!`;
       } else {
-        cart.push({ id, title, price, img, qty: 1 });
+        shippingMeterText.innerHTML = `<span style="color: #2b7a2b;">🎉 You unlocked Free Express White-Glove Shipping!</span>`;
       }
+    }
 
-      updateCartUI();
-      showToast(title);
-      
-      // Haptic bounce effect on nav cart icon
-      if (countBadge) {
-        countBadge.style.transform = 'scale(1.4)';
-        setTimeout(() => { countBadge.style.transform = 'scale(1)'; }, 200);
-      }
-    });
-  });
+    // Render items
+    if (!cartItemsContainer) return;
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = `
+        <div class="wt-cart-empty-state">
+          <i data-lucide="shopping-bag" style="width: 44px; height: 44px; opacity: 0.3; margin: 0 auto;"></i>
+          <p>Your shopping bag is currently empty.</p>
+          <button class="wt-btn wt-btn-secondary wt-btn-sm" style="margin-top: 14px;" id="emptyCartShopBtn">
+            Explore Nano Protection
+          </button>
+        </div>
+      `;
+      document.getElementById('emptyCartShopBtn')?.addEventListener('click', () => {
+        closeCartDrawer();
+        document.getElementById('productsSection')?.scrollIntoView({ behavior: 'smooth' });
+      });
+    } else {
+      cartItemsContainer.innerHTML = cart.map((item, index) => `
+        <div class="wt-cart-item">
+          <img src="${item.image}" alt="${item.name}" class="wt-cart-item-img">
+          <div class="wt-cart-item-info">
+            <h4 class="wt-cart-item-title">${item.name}</h4>
+            <span class="wt-cart-item-variant">${item.size}</span>
+            <div class="wt-cart-item-row">
+              <div class="wt-qty-selector">
+                <button class="wt-qty-btn" data-cart-qty-dec="${index}">-</button>
+                <span class="wt-qty-val">${item.qty}</span>
+                <button class="wt-qty-btn" data-cart-qty-inc="${index}">+</button>
+              </div>
+              <span class="wt-cart-item-price">${formatPrice(item.price * item.qty)}</span>
+            </div>
+            <span class="wt-cart-remove-btn" data-cart-remove="${index}">Remove</span>
+          </div>
+        </div>
+      `).join('');
 
-  // Checkout button simulation
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-      checkoutBtn.disabled = true;
-      checkoutBtn.innerHTML = 'Connecting to Secure Gateway...';
-
-      setTimeout(() => {
-        alert('Thank you! In production, this connects to Razorpay / Cashfree / Gokwik for instant 1-click checkout with Free Express Shipping.');
-        checkoutBtn.disabled = false;
-        checkoutBtn.innerHTML = '<span>Proceed To Checkout</span>';
-      }, 800);
-    });
-  }
-}
-
-/* ----------------------------------------------------
-   13. Pinterest Hero Swatches & Size Toggles
----------------------------------------------------- */
-function initPinterestHero() {
-  const swatches = document.querySelectorAll('.swatch-circle');
-  const sizeBtns = document.querySelectorAll('.size-pill-circle');
-  const giantWord = document.getElementById('heroGiantWord');
-  const mainTitle = document.getElementById('heroMainTitle');
-  const subDesc = document.getElementById('heroSubDesc');
-  const subjectImg = document.getElementById('heroSubjectImg');
-  const floatingSubject = document.getElementById('floatingHeroSubject');
-
-  swatches.forEach(swatch => {
-    swatch.addEventListener('click', () => {
-      swatches.forEach(s => s.classList.remove('active'));
-      swatch.classList.add('active');
-
-      const word = swatch.dataset.word;
-      const title = swatch.dataset.title;
-      const desc = swatch.dataset.desc;
-      const img = swatch.dataset.img;
-
-      if (giantWord) {
-        giantWord.style.opacity = '0';
-        giantWord.style.transform = 'translate(-50%, -50%) scale(0.92)';
-        setTimeout(() => {
-          giantWord.textContent = word;
-          giantWord.style.opacity = '0.2';
-          giantWord.style.transform = 'translate(-50%, -50%) scale(1)';
-        }, 200);
-      }
-
-      if (mainTitle) {
-        mainTitle.style.opacity = '0';
-        setTimeout(() => {
-          mainTitle.innerHTML = title;
-          mainTitle.style.opacity = '1';
-        }, 150);
-      }
-
-      if (subDesc) {
-        subDesc.style.opacity = '0';
-        setTimeout(() => {
-          subDesc.textContent = desc;
-          subDesc.style.opacity = '1';
-        }, 150);
-      }
-
-      if (subjectImg) {
-        subjectImg.style.opacity = '0';
-        subjectImg.style.transform = 'scale(0.95)';
-        setTimeout(() => {
-          subjectImg.src = img;
-          subjectImg.style.opacity = '1';
-          subjectImg.style.transform = 'scale(1)';
-        }, 200);
-      }
-    });
-  });
-
-  sizeBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      sizeBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  // Dynamic Mouse Parallax on floating hero subject
-  if (floatingSubject) {
-    const heroSection = document.getElementById('hero');
-    if (heroSection) {
-      heroSection.addEventListener('mousemove', (e) => {
-        const rect = heroSection.getBoundingClientRect();
-        const nx = (e.clientX - rect.left) / rect.width - 0.5;
-        const ny = (e.clientY - rect.top) / rect.height - 0.5;
-
-        floatingSubject.style.transform = `perspective(1000px) rotateX(${-ny * 16}deg) rotateY(${nx * 20}deg) rotate(-6deg) translateY(${ny * -15}px)`;
+      // Cart item quantity events
+      cartItemsContainer.querySelectorAll('[data-cart-qty-dec]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.cartQtyDec);
+          if (cart[idx].qty > 1) {
+            cart[idx].qty -= 1;
+          } else {
+            cart.splice(idx, 1);
+          }
+          saveCart();
+        });
       });
 
-      heroSection.addEventListener('mouseleave', () => {
-        floatingSubject.style.transform = 'perspective(1000px) rotate(-6deg) rotateY(-4deg)';
+      cartItemsContainer.querySelectorAll('[data-cart-qty-inc]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.cartQtyInc);
+          cart[idx].qty += 1;
+          saveCart();
+        });
+      });
+
+      cartItemsContainer.querySelectorAll('[data-cart-remove]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const idx = Number(btn.dataset.cartRemove);
+          cart.splice(idx, 1);
+          saveCart();
+        });
       });
     }
+
+    if (window.lucide) window.lucide.createIcons();
   }
-}
 
+  // Simulated Checkout
+  checkoutBtn?.addEventListener('click', () => {
+    if (cart.length === 0) {
+      alert('Your cart is empty. Please add items to proceed.');
+      return;
+    }
+    const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+    const orderRef = 'CW-' + Math.floor(100000 + Math.random() * 900000);
+    alert(`Order Initiated #${orderRef}\n\nTotal Payable: ${formatPrice(subtotal)}\nComplimentary Express Delivery Included.\n\nThank you for choosing COATINGWALE™ Smart Coatings!`);
+    cart = [];
+    saveCart();
+    closeCartDrawer();
+  });
 
+  /* =========================================================
+     6. SHOP THE ROOM (LOOKBOOK HOTSPOTS)
+     ========================================================= */
+  const hotspotDots = document.querySelectorAll('.wt-hotspot');
+  hotspotDots.forEach(spot => {
+    spot.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const wasOpen = spot.classList.contains('is-open');
+      hotspotDots.forEach(s => s.classList.remove('is-open'));
+      if (!wasOpen) spot.classList.add('is-open');
+    });
+
+    const addBtn = spot.querySelector('.wt-hotspot-btn');
+    addBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const pId = addBtn.dataset.productId;
+      addToCart(pId);
+      spot.classList.remove('is-open');
+    });
+  });
+
+  document.addEventListener('click', () => {
+    hotspotDots.forEach(s => s.classList.remove('is-open'));
+  });
+
+  /* =========================================================
+     7. HYDROPHOBIC SPILL SIMULATOR (SLIDER)
+     ========================================================= */
+  const simBox = document.getElementById('simBox');
+  const simOverlay = document.getElementById('simOverlay');
+  const simHandle = document.getElementById('simHandle');
+
+  if (simBox && simOverlay && simHandle) {
+    let isDragging = false;
+
+    function setSimulatorPosition(clientX) {
+      const rect = simBox.getBoundingClientRect();
+      let offsetX = clientX - rect.left;
+      offsetX = Math.max(0, Math.min(rect.width, offsetX));
+      const percentage = (offsetX / rect.width) * 100;
+
+      simOverlay.style.width = `${percentage}%`;
+      simHandle.style.left = `${percentage}%`;
+    }
+
+    simHandle.addEventListener('mousedown', () => { isDragging = true; });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (isDragging) setSimulatorPosition(e.clientX);
+    });
+
+    simHandle.addEventListener('touchstart', () => { isDragging = true; });
+    window.addEventListener('touchend', () => { isDragging = false; });
+    window.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches[0]) {
+        setSimulatorPosition(e.touches[0].clientX);
+      }
+    });
+
+    simBox.addEventListener('click', (e) => {
+      setSimulatorPosition(e.clientX);
+    });
+  }
+
+  /* =========================================================
+     8. QUICK VIEW MODAL
+     ========================================================= */
+  const quickViewModal = document.getElementById('quickViewModal');
+  const quickViewClose = document.getElementById('quickViewClose');
+  const modalImg = document.getElementById('modalImg');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCategory = document.getElementById('modalCategory');
+  const modalPrice = document.getElementById('modalPrice');
+  const modalComparePrice = document.getElementById('modalComparePrice');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalCoverage = document.getElementById('modalCoverage');
+  const modalSwatches = document.getElementById('modalSwatches');
+  const modalAddToCartBtn = document.getElementById('modalAddToCartBtn');
+
+  let activeModalProductId = null;
+  let activeModalSize = null;
+  let activeModalPrice = null;
+
+  function openQuickView(productId) {
+    const p = PRODUCTS.find(prod => prod.id === productId);
+    if (!p || !quickViewModal) return;
+
+    activeModalProductId = p.id;
+    const defaultVariant = p.variants.find(v => v.default) || p.variants[0];
+    activeModalSize = defaultVariant.size;
+    activeModalPrice = defaultVariant.price;
+
+    if (modalImg) modalImg.src = p.primaryImage;
+    if (modalTitle) modalTitle.textContent = p.name;
+    if (modalCategory) modalCategory.textContent = p.categoryLabel;
+    if (modalPrice) modalPrice.textContent = formatPrice(defaultVariant.price);
+    if (modalComparePrice) modalComparePrice.textContent = formatPrice(defaultVariant.comparePrice);
+    if (modalDesc) modalDesc.textContent = p.description;
+    if (modalCoverage) modalCoverage.textContent = p.coverage;
+
+    if (modalSwatches) {
+      modalSwatches.innerHTML = p.variants.map((v, idx) => `
+        <button class="wt-swatch-chip ${idx === 0 || v.default ? 'is-selected' : ''}" 
+                data-modal-size="${v.size}"
+                data-modal-price="${v.price}"
+                data-modal-compare="${v.comparePrice}">
+          ${v.size}
+        </button>
+      `).join('');
+
+      modalSwatches.querySelectorAll('.wt-swatch-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          modalSwatches.querySelectorAll('.wt-swatch-chip').forEach(s => s.classList.remove('is-selected'));
+          chip.classList.add('is-selected');
+
+          activeModalSize = chip.dataset.modalSize;
+          activeModalPrice = Number(chip.dataset.modalPrice);
+          const compareVal = Number(chip.dataset.modalCompare);
+
+          if (modalPrice) modalPrice.textContent = formatPrice(activeModalPrice);
+          if (modalComparePrice) modalComparePrice.textContent = formatPrice(compareVal);
+        });
+      });
+    }
+
+    quickViewModal.classList.add('is-active');
+  }
+
+  function closeQuickView() {
+    quickViewModal?.classList.remove('is-active');
+  }
+
+  quickViewClose?.addEventListener('click', closeQuickView);
+  quickViewModal?.addEventListener('click', (e) => {
+    if (e.target === quickViewModal) closeQuickView();
+  });
+
+  modalAddToCartBtn?.addEventListener('click', () => {
+    if (activeModalProductId) {
+      addToCart(activeModalProductId, activeModalSize, activeModalPrice);
+      closeQuickView();
+    }
+  });
+
+  /* =========================================================
+     9. SEARCH DRAWER & FILTERING
+     ========================================================= */
+  const searchDrawer = document.getElementById('searchDrawer');
+  const searchToggleBtn = document.getElementById('searchToggleBtn');
+  const searchCloseBtn = document.getElementById('searchCloseBtn');
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+
+  searchToggleBtn?.addEventListener('click', () => {
+    searchDrawer?.classList.toggle('is-active');
+    if (searchDrawer?.classList.contains('is-active')) {
+      searchInput?.focus();
+    }
+  });
+
+  searchCloseBtn?.addEventListener('click', () => {
+    searchDrawer?.classList.remove('is-active');
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    if (!searchResults) return;
+
+    if (!query) {
+      searchResults.innerHTML = '';
+      return;
+    }
+
+    const matches = PRODUCTS.filter(p => 
+      p.name.toLowerCase().includes(query) ||
+      p.categoryLabel.toLowerCase().includes(query) ||
+      p.description.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = `<div style="grid-column: 1 / -1; padding: 12px; color: #888;">No matching surface protection solutions found for "${query}"</div>`;
+    } else {
+      searchResults.innerHTML = matches.map(p => `
+        <div style="display: flex; gap: 10px; padding: 10px; border: 1px solid var(--color-border); align-items: center; background: #faf8f5; border-radius: 4px; cursor: pointer;" onclick="window.wtOpenQuickView('${p.id}')">
+          <img src="${p.primaryImage}" style="width: 48px; height: 48px; object-fit: cover; border-radius: 2px;">
+          <div>
+            <div style="font-size: 13px; font-weight: 600;">${p.name}</div>
+            <div style="font-size: 12px; color: #1e1b18; font-weight: 700;">${formatPrice(p.price)}</div>
+          </div>
+        </div>
+      `).join('');
+    }
+  });
+
+  window.wtOpenQuickView = (pId) => {
+    searchDrawer?.classList.remove('is-active');
+    openQuickView(pId);
+  };
+
+  /* =========================================================
+     10. CURRENCY CONVERTER TOGGLE
+     ========================================================= */
+  const currencyToggleBtn = document.getElementById('currencyToggleBtn');
+  currencyToggleBtn?.addEventListener('click', () => {
+    currency = currency === 'INR' ? 'USD' : 'INR';
+    localStorage.setItem('wt_invisel_currency', currency);
+    currencyToggleBtn.innerHTML = currency === 'INR' ? `🇮🇳 INR ₹` : `🇺🇸 USD $`;
+    renderProducts(document.querySelector('.wt-tab-btn.is-active')?.dataset.category || 'all');
+    updateCartUI();
+    showToast(`Switched currency to ${currency}`);
+  });
+
+  /* =========================================================
+     11. MOBILE DRAWER NAVIGATION
+     ========================================================= */
+  const mobileToggleBtn = document.getElementById('mobileToggleBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+
+  mobileToggleBtn?.addEventListener('click', () => {
+    mobileDrawer?.classList.add('is-active');
+  });
+
+  mobileCloseBtn?.addEventListener('click', () => {
+    mobileDrawer?.classList.remove('is-active');
+  });
+
+  mobileDrawer?.addEventListener('click', (e) => {
+    if (e.target === mobileDrawer) mobileDrawer.classList.remove('is-active');
+  });
+
+  document.querySelectorAll('.wt-mobile-nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileDrawer?.classList.remove('is-active');
+    });
+  });
+
+  /* =========================================================
+     12. NEWSLETTER FORM
+     ========================================================= */
+  const newsletterForm = document.getElementById('newsletterForm');
+  newsletterForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = document.getElementById('newsletterEmail');
+    if (emailInput && emailInput.value) {
+      showToast(`Welcome to the Care Circle! Your 10% coupon code is WONDER10`);
+      emailInput.value = '';
+    }
+  });
+
+  // Initial render
+  renderProducts('all');
+  updateCartUI();
+});

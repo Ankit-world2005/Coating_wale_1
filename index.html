@@ -1,1256 +1,797 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>INVISEL | India's #1 DIY Surface Care &amp; Nano-Coating Protection</title>
-  <meta name="description" content="India's leading hydrophobic nanocoating surface protection for luxury sofas, curtains, marble, glass and upholstery. 1-3 year warranty, kid and pet safe, 100% invisible.">
-  <meta name="keywords" content="nanocoating, fabric protection, sofa nanocoating, marble coating, glass coating, stain repellent, hydrophobic coating India">
-  
+  <title>COATINGWALE | Smart Coatings. Better Surfaces.</title>
+  <meta name="description" content="Discover smart coating surface protection crafted for modern interiors. Protect luxury sofas, Italian marble, architectural glass, and fine leather with next-gen nanocoating.">
+  <meta name="keywords" content="coatingwale, smart coatings, luxury furniture coating, fabric nanocoating, marble sealer, shower glass guard, interior surface care">
+
   <!-- Open Graph -->
-  <meta property="og:title" content="INVISEL | India&apos;s #1 Surface Care Brand">
-  <meta property="og:description" content="Your Furniture & Surfaces. Protected Forever. India's Next-Gen Hydrophobic Nanotechnology for Furniture, Fabric, Marble & Glass.">
+  <meta property="og:title" content="COATINGWALE | Smart Coatings. Better Surfaces.">
+  <meta property="og:description" content="Discover furniture and surface protection that feels like home. Smart Coatings. Better Surfaces.">
   <meta property="og:type" content="website">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans, Playfair Display & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Main Stylesheet -->
+  <!-- Wonder Theme Interior Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Sensitive Dynamic Light Aura (Follows Pointer) -->
-  <div class="cursor-aura"></div>
+  <!-- ===================================================================
+       1. ANNOUNCEMENT BAR (Wonder Theme 3-Column Bar)
+       =================================================================== -->
+  <aside class="wt-announcement-bar" role="region" aria-label="Announcements">
+    <div class="site-container wt-announcement-container">
+      <div class="wt-announcement-item">
+        <a href="#editorial">Need Help? Surface Care Guide &rarr;</a>
+      </div>
+      <div class="wt-announcement-item wt-announcement-item--center">
+        <span>Free Express Delivery On All Nano-Protection Orders Across India</span>
+      </div>
+      <div class="wt-announcement-item">
+        <a href="#footer">Contact Interior Specialists &rarr;</a>
+      </div>
+    </div>
+  </aside>
 
   <!-- ===================================================================
-       OUTER SITE FRAME CONTAINER (PINTEREST WINDOW PRESENTATION)
+       2. STICKY LUXURY HEADER & NAVIGATION
        =================================================================== -->
-  <div class="site-frame">
-    <!-- Frame Header Matching [ planet ] Reference -->
-    <header class="frame-header">
-      <a href="#" class="bracket-brand" id="brandLogo">
-        <span class="bracket-tag">[</span>&nbsp;INVISEL&nbsp;<span class="bracket-tag">]</span>
+  <div class="wt-header-sticky-wrapper">
+    <header class="site-container wt-header">
+      <!-- Mobile Toggle Button -->
+      <button class="wt-icon-btn wt-mobile-menu-toggle" id="mobileToggleBtn" aria-label="Open Navigation Menu">
+        <i data-lucide="menu" style="width: 22px; height: 22px;"></i>
+      </button>
+
+      <!-- Brand Logo -->
+      <a href="#" class="wt-logo" aria-label="COATINGWALE Home">
+        <img src="assets/images/logo.png" alt="COATINGWALE - Smart Coatings. Better Surfaces." class="wt-logo-img">
       </a>
 
-      <div class="nav-center-pill">
-        <a href="#services" class="active">Services</a>
-        <a href="#products">DIY Products</a>
-      </div>
+      <!-- Desktop Navigation Menu -->
+      <nav class="wt-nav-list" aria-label="Primary Navigation">
+        <!-- Mega Menu Item: Shop Collections -->
+        <div class="wt-nav-item wt-nav-item--has-drop">
+          <a href="#productsSection" class="wt-nav-link">
+            Shop Products <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i>
+          </a>
+          <div class="wt-mega-menu">
+            <div class="wt-mega-col">
+              <h4>Living &amp; Dining</h4>
+              <ul class="wt-mega-links">
+                <li><a href="#productsSection">Boucle &amp; Velvet Sofas <span>&rarr;</span></a></li>
+                <li><a href="#productsSection">Calacatta &amp; Honed Marble <span>&rarr;</span></a></li>
+                <li><a href="#productsSection">Fine Silk Drapes &amp; Rugs <span>&rarr;</span></a></li>
+                <li><a href="#productsSection">Aniline Leather Lounge <span>&rarr;</span></a></li>
+              </ul>
+            </div>
+            <div class="wt-mega-col">
+              <h4>Bath &amp; Architectural</h4>
+              <ul class="wt-mega-links">
+                <li><a href="#productsSection">Frameless Shower Enclosures <span>&rarr;</span></a></li>
+                <li><a href="#productsSection">Quartz &amp; Granite Kitchen <span>&rarr;</span></a></li>
+                <li><a href="#productsSection">Handcrafted Teak &amp; Wood <span>&rarr;</span></a></li>
+                <li><a href="#productsSection">Full Sanctuary Master Sets <span>&rarr;</span></a></li>
+              </ul>
+            </div>
+            <div class="wt-mega-promo">
+              <div>
+                <span class="eyebrow-pill" style="margin-bottom: 8px;">Master Sanctuary</span>
+                <h5>Full Home Protection</h5>
+                <p>Complete 4-bottle nanocoating set for 3BHK/4BHK residences.</p>
+              </div>
+              <a href="#productsSection" class="wt-btn wt-btn-primary wt-btn-sm" style="width: 100%;">Explore Set</a>
+            </div>
+          </div>
+        </div>
 
-      <div class="frame-nav-right">
-        <a href="#services" class="frame-nav-link">Home</a>
-        <a href="#products" class="frame-nav-link">Products</a>
-        <a href="#process" class="frame-nav-link">Process</a>
-        <a href="#faq" class="frame-nav-link">Contact</a>
-        <button class="nav-cart-btn" id="openCartBtn" aria-label="View Shopping Cart">
-          <i data-lucide="shopping-bag" style="width: 17px; height: 17px;"></i>
-          <span class="cart-count-badge" id="cartCountBadge">0</span>
+        <a href="#mosaicSection" class="wt-nav-link">Rooms</a>
+        <a href="#shoppableSection" class="wt-nav-link">Shop The Room</a>
+        <a href="#editorial" class="wt-nav-link">The Science</a>
+        <a href="#simulator" class="wt-nav-link">Before &amp; After</a>
+        <a href="#testimonials" class="wt-nav-link">Reviews</a>
+      </nav>
+
+      <!-- Header Utilities -->
+      <div class="wt-header-actions">
+        <!-- Currency Converter -->
+        <button class="wt-currency-select" id="currencyToggleBtn" aria-label="Toggle currency">
+          <span>🇮🇳 INR ₹</span>
         </button>
-        <button class="btn-frame-order" data-open-modal="bookingModal" id="navBookBtn">
-          <span>Place Order</span>
-          <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+
+        <!-- Search Drawer Trigger -->
+        <button class="wt-icon-btn" id="searchToggleBtn" aria-label="Search Catalog">
+          <i data-lucide="search" style="width: 20px; height: 20px;"></i>
+        </button>
+
+        <!-- Slide-out Cart Drawer Trigger -->
+        <button class="wt-icon-btn" id="openCartBtn" aria-label="View Shopping Bag">
+          <i data-lucide="shopping-bag" style="width: 20px; height: 20px;"></i>
+          <span class="wt-cart-badge" id="cartBadge" style="display: none;">0</span>
         </button>
       </div>
     </header>
-
-    <!-- ===================================================================
-         PINTEREST HERO SECTION (VIOLET/PURPLE 3-COL BOLD COMPOSITION)
-         =================================================================== -->
-    <section class="frame-hero" id="hero">
-      <!-- Giant Stencil Word in Background -->
-      <div class="hero-giant-word" id="heroGiantWord">SHIELD</div>
-
-      <div class="hero-3col-layout">
-        <!-- Col Left: Bold Headline, Copy & Social Icons -->
-        <div class="hero-col-left">
-          <h1 class="hero-title-bold" id="heroMainTitle">
-            INDIA'S #1<br>SURFACE CARE
-          </h1>
-          <p id="heroSubDesc">
-            India's first nano-coating brand for DIY surface protection. Invisible, odourless, and long-lasting — guard your Sofa, Marble, Glass, Wood &amp; Leather at home.
-          </p>
-          <div class="hero-social-strip">
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" style="width: 19px; height: 19px;"></i></a>
-            <a href="#" aria-label="Facebook"><i data-lucide="facebook" style="width: 19px; height: 19px;"></i></a>
-            <a href="#" aria-label="Dribbble"><i data-lucide="dribbble" style="width: 19px; height: 19px;"></i></a>
-            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" style="width: 19px; height: 19px;"></i></a>
-          </div>
-        </div>
-
-        <!-- Col Center: Floating Tilted 3D Hero Subject with Liquid Splash Accents -->
-        <div class="hero-col-center">
-          <div class="floating-hero-subject" id="floatingHeroSubject">
-            <img src="assets/images/invisel/sofa-combo.jpg" id="heroSubjectImg" alt="Invisel Sofa &amp; Fabric Protection" loading="eager">
-            <!-- Splash Particles like the reference sneaker splash -->
-            <div class="splash-particle" style="width: 22px; height: 22px; top: -14px; left: 24%;"></div>
-            <div class="splash-particle" style="width: 16px; height: 16px; bottom: 24px; right: -8px; animation-delay: 1.1s;"></div>
-            <div class="splash-particle" style="width: 12px; height: 12px; top: 44%; left: -14px; animation-delay: 0.6s;"></div>
-            <div class="splash-particle" style="width: 26px; height: 26px; bottom: -12px; left: 44%; animation-delay: 1.7s;"></div>
-          </div>
-        </div>
-
-        <!-- Col Right: Color Swatches, Size Indicators & Direct CTA -->
-        <div class="hero-col-right">
-          <div class="swatch-picker-box">
-            <span class="swatch-title">Choose Your Surface</span>
-            <div class="swatches-row">
-              <button class="swatch-circle active" data-surface="fabric" data-word="FABRIC" data-title="SOFA &amp; FABRIC<br>PROTECTION" data-desc="Invisel Sofa &amp; Fabric Stain Repellent creates an invisible barrier against chai, coffee, wine &amp; oil. Easy DIY spray." data-img="assets/images/invisel/sofa-combo.jpg" style="--swatch-color: #2dd4bf;" title="Velvet & Fabric"></button>
-              <button class="swatch-circle" data-surface="marble" data-word="MARBLE" data-title="MARBLE &amp; STONE<br>REPELLENT" data-desc="Invisel Marble &amp; Granite Repellent penetrates stone pores to stop turmeric, lemon acid, and oil permanently." data-img="assets/images/invisel/marble-combo.jpg" style="--swatch-color: #f97316;" title="Italian Marble"></button>
-              <button class="swatch-circle" data-surface="glass" data-word="GLASS" data-title="SPOTLESS GLASS<br>&amp; CERAMICS" data-desc="Invisel Glass &amp; Tile Repellent makes glass ultra-slick so hard water slides off � no limescale, no scrubbing." data-img="assets/images/invisel/glass-combo.jpg" style="--swatch-color: #ef4444;" title="Shower Glass & Ceramics"></button>
-              <button class="swatch-circle" data-surface="leather" data-word="ULTIMATE" data-title="ALL-IN-ONE HOME<br>PROTECTION" data-desc="The Invisel Ultimate Combo covers every surface � Sofa, Marble, Glass, Wood and Leather. Best value pack." data-img="assets/images/invisel/ultimate-combo.jpg" style="--swatch-color: #a855f7;" title="Wood & Leather"></button>
-            </div>
-          </div>
-
-          <div class="swatch-picker-box">
-            <span class="swatch-title">Choose your size</span>
-            <div class="sizes-row">
-              <button class="size-pill-circle active" data-size="250ml">250ml</button>
-              <button class="size-pill-circle" data-size="500ml">500ml</button>
-              <button class="size-pill-circle" data-size="1L">1L</button>
-            </div>
-          </div>
-
-          <a href="#products" class="btn-see-products" id="heroSeeProductsBtn">
-            <span>See all products</span>
-            <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Bottom Center Indicator -->
-      <div class="hero-bottom-indicator">
-        <span class="indicator-line"></span>
-        <span>Choose your size • Scroll to explore</span>
-        <span class="indicator-line"></span>
-      </div>
-    </section>
-
-  <!-- ===================================================================
-       METRICS & TRUST STRIP
-       =================================================================== -->
-  <section class="metrics-strip">
-    <div class="container metrics-grid">
-      <div class="metric-item">
-        <div class="metric-number">10,000+</div>
-        <div class="metric-label">Sofas &amp; Surfaces Shielded</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-number">150°+</div>
-        <div class="metric-label">Superhydrophobic Contact Angle</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-number">25+</div>
-        <div class="metric-label">Indian Cities with Doorstep Service</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-number">3 Years</div>
-        <div class="metric-label">Guaranteed Protection Warranty</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       INTERACTIVE HYDROPHOBIC SIMULATOR (TACTILE DEMO)
-       =================================================================== -->
-  <section class="section-simulator" id="simulator">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="flask-conical" style="width: 14px; height: 14px;"></i>
-          <span>Interactive Physics Simulation</span>
-        </div>
-        <h2 class="section-title">
-          Experience The <span class="text-gradient">Lotus Effect</span> Firsthand
-        </h2>
-        <p class="section-desc">
-          On untreated fabric, liquids soak into fiber pores within seconds causing permanent discoloration. With INVISEL, surface tension holds droplets into perfect spheres that roll right off. Try clicking and dragging below!
-        </p>
-      </div>
-
-      <div class="simulator-box">
-        <div class="simulator-controls">
-          <div class="liquid-selector">
-            <span style="font-size: 0.88rem; font-weight: 600; color: var(--text-muted); margin-right: 6px;">Select Liquid:</span>
-            <button class="liquid-btn active" data-liquid="coffee">
-              <span class="color-indicator" style="background: #653313;"></span>
-              <span>Coffee / Espresso</span>
-            </button>
-            <button class="liquid-btn" data-liquid="wine">
-              <span class="color-indicator" style="background: #881337;"></span>
-              <span>Red Wine</span>
-            </button>
-            <button class="liquid-btn" data-liquid="chai">
-              <span class="color-indicator" style="background: #c2702d;"></span>
-              <span>Masala Chai</span>
-            </button>
-            <button class="liquid-btn" data-liquid="water">
-              <span class="color-indicator" style="background: #38bdf8;"></span>
-              <span>Pure Water</span>
-            </button>
-          </div>
-
-          <div style="display: flex; gap: 10px;">
-            <button class="btn btn-secondary btn-sm" id="resetSimBtn">
-              <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i>
-              <span>Drop More Beads</span>
-            </button>
-            <button class="btn btn-secondary btn-sm" id="clearSimBtn">
-              <i data-lucide="trash-2" style="width: 14px; height: 14px;"></i>
-              <span>Wipe Clean</span>
-            </button>
-          </div>
-        </div>
-
-        <div class="simulator-canvas-wrapper" id="canvasContainer">
-          <canvas id="spillCanvas"></canvas>
-          <div class="canvas-hint">
-            <i data-lucide="mouse-pointer" style="width: 14px; height: 14px; color: var(--primary);"></i>
-            <span>Click or drag across the fabric to spill droplets • Move mouse to tilt gravity</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       BEFORE & AFTER INTERACTIVE SPLIT SLIDER
-       =================================================================== -->
-  <section class="section-comparison" id="comparison">
-    <div class="container comparison-wrapper">
-      <div class="comparison-card" id="beforeAfterCard">
-        <!-- Before image (underneath) -->
-        <img src="assets/images/uncoated-stain.jpg" alt="Uncoated fabric ruined by stains" class="comparison-img">
-        <span class="badge-tag-before">Untreated Surface</span>
-
-        <!-- After image (clipped by slider) -->
-        <div class="comparison-after-box" id="afterBox">
-          <img src="assets/images/macro-liquid.jpg" alt="Nanocoated fabric with liquid beads" class="comparison-img">
-          <span class="badge-tag-after">INVISEL Shielded</span>
-        </div>
-
-        <!-- Draggable Handle -->
-        <div class="comparison-handle" id="sliderHandle">
-          <i data-lucide="chevrons-left-right" style="width: 18px; height: 18px;"></i>
-        </div>
-      </div>
-
-      <div class="comparison-details">
-        <div class="badge-pill" style="margin-bottom: 16px;">
-          <i data-lucide="scale" style="width: 14px; height: 14px;"></i>
-          <span>The Scientific Difference</span>
-        </div>
-        <h3>Cleaning Vs. Protection: Know The Difference</h3>
-        <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">
-          Every traditional cleaner you’ve ever used is <strong>reactive</strong>. It attacks stains after they have already penetrated the fibers, bleaching yarns and weakening fabric structure over time.
-        </p>
-
-        <ul class="comparison-list">
-          <li>
-            <div class="icon-check-box">
-              <i data-lucide="check" style="width: 14px; height: 14px;"></i>
-            </div>
-            <div>
-              <strong style="color: var(--text-main); display: block; font-size: 1.05rem;">Stops Stains Before They Form</strong>
-              <span style="color: var(--text-muted); font-size: 0.92rem;">Creates an invisible 0.001-micron hydrophobic silica barrier that prevents liquid molecules from making contact with the yarn.</span>
-            </div>
-          </li>
-          <li>
-            <div class="icon-check-box">
-              <i data-lucide="check" style="width: 14px; height: 14px;"></i>
-            </div>
-            <div>
-              <strong style="color: var(--text-main); display: block; font-size: 1.05rem;">Preserves Natural Texture &amp; Breathability</strong>
-              <span style="color: var(--text-muted); font-size: 0.92rem;">Unlike cheap silicone or wax sprays that feel plastic or sticky, INVISEL™ allows air to circulate naturally through the micro-weave.</span>
-            </div>
-          </li>
-          <li>
-            <div class="icon-check-box">
-              <i data-lucide="check" style="width: 14px; height: 14px;"></i>
-            </div>
-            <div>
-              <strong style="color: var(--text-main); display: block; font-size: 1.05rem;">Wipe Clean in 5 Seconds</strong>
-              <span style="color: var(--text-muted); font-size: 0.92rem;">Just dab gently with a dry tissue or microfiber cloth. No scrubbing, no shampooing, no water rings.</span>
-            </div>
-          </li>
-        </ul>
-
-        <button class="btn btn-primary" data-open-modal="bookingModal" id="comparisonBookBtn">
-          <span>Schedule Doorstep Application</span>
-          <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       SURFACE COVERAGE SHOWCASE (TABS)
-       =================================================================== -->
-  <section class="section-surfaces" id="services">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="layers" style="width: 14px; height: 14px;"></i>
-          <span>Engineered For Every Surface</span>
-        </div>
-        <h2 class="section-title">
-          Protection Across Your Entire <span class="text-gradient">Living Space</span>
-        </h2>
-        <p class="section-desc">
-          From imported Italian linen to Calacatta marble and architectural shower glass, our tailored formulas protect every delicate material.
-        </p>
-      </div>
-
-      <!-- Tab Buttons -->
-      <div class="surface-tabs-nav">
-        <button class="tab-btn active" data-target="tab-sofa">
-          <i data-lucide="armchair" style="width: 18px; height: 18px;"></i>
-          <span>Sofas &amp; Upholstery</span>
-        </button>
-        <button class="tab-btn" data-target="tab-marble">
-          <i data-lucide="gem" style="width: 18px; height: 18px;"></i>
-          <span>Marble &amp; Granite</span>
-        </button>
-        <button class="tab-btn" data-target="tab-glass">
-          <i data-lucide="shield" style="width: 18px; height: 18px;"></i>
-          <span>Glass &amp; Bathrooms</span>
-        </button>
-        <button class="tab-btn" data-target="tab-curtains">
-          <i data-lucide="wind" style="width: 18px; height: 18px;"></i>
-          <span>Curtains &amp; Rugs</span>
-        </button>
-      </div>
-
-      <!-- Tab 1: Sofas -->
-      <div class="surface-tab-content active" id="tab-sofa">
-        <div class="surface-card-visual tilt-card">
-          <img src="assets/images/invisel/sofa-combo.jpg" alt="Sofas & Upholstery Nanocoating Shield">
-        </div>
-        <div class="surface-info">
-          <h3>Sofa &amp; Fabric Shield</h3>
-          <p style="color: var(--text-muted); line-height: 1.65;">
-            Our flagship fabric formula creates an impenetrable molecular bond with velvet, chenille, linen, cotton, and jacquard. Liquids bead into droplets instantly, making turmeric (haldi), red wine, coffee, and ketchup completely harmless.
-          </p>
-
-          <div class="surface-specs-grid">
-            <div class="spec-box">
-              <div class="spec-title">Warranty Period</div>
-              <div class="spec-val">1 - 3 Years</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Cure Time</div>
-              <div class="spec-val">4 - 6 Hours</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Texture Change</div>
-              <div class="spec-val" style="color: var(--primary);">0% (Identical)</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Protection Spectrum</div>
-              <div class="spec-val">Hydro &amp; Oleophobic</div>
-            </div>
-          </div>
-
-          <button class="btn btn-primary btn-sm" data-open-modal="bookingModal">
-            <span>Protect My Sofa</span>
-            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Tab 2: Marble -->
-      <div class="surface-tab-content" id="tab-marble">
-        <div class="surface-card-visual tilt-card">
-          <img src="assets/images/invisel/marble-combo.jpg" alt="Marble & Granite Stain Repellent">
-        </div>
-        <div class="surface-info">
-          <h3>Marble &amp; Natural Stone Seal</h3>
-          <p style="color: var(--text-muted); line-height: 1.65;">
-            Natural Italian marble and granite are porous rocks that drink up lemon juice, wine, vinegar, and oil within minutes, causing permanent etch marks. Our breathable nano-seal penetrates the crystal pores and locks out acids and oils while retaining natural luster.
-          </p>
-
-          <div class="surface-specs-grid">
-            <div class="spec-box">
-              <div class="spec-title">Warranty Period</div>
-              <div class="spec-val">3 - 5 Years</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Resistance</div>
-              <div class="spec-val">Acid &amp; Oil Proof</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Luster Impact</div>
-              <div class="spec-val" style="color: var(--primary);">Zero Yellowing</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Surface Prep</div>
-              <div class="spec-val">Micro-Diamond Polish</div>
-            </div>
-          </div>
-
-          <button class="btn btn-primary btn-sm" data-open-modal="bookingModal">
-            <span>Protect My Marble Countertops</span>
-            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Tab 3: Glass -->
-      <div class="surface-tab-content" id="tab-glass">
-        <div class="surface-card-visual tilt-card">
-          <img src="assets/images/invisel/marble-combo.jpg" alt="Shower Glass & Mirror Nano Shield">
-        </div>
-        <div class="surface-info">
-          <h3>Shower Glass &amp; Ceramic Shield</h3>
-          <p style="color: var(--text-muted); line-height: 1.65;">
-            Hard water in Indian metropolitan cities contains dissolved calcium and magnesium salts that permanently etch shower partitions and mirrors. Our ceramic glass barrier makes glass ultra-slick so water slides off without forming limescale rings.
-          </p>
-
-          <div class="surface-specs-grid">
-            <div class="spec-box">
-              <div class="spec-title">Cleaning Reduction</div>
-              <div class="spec-val">90% Less Scrubbing</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Durability</div>
-              <div class="spec-val">2+ Years</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Contact Angle</div>
-              <div class="spec-val" style="color: var(--primary);">160° Ultra-Bead</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Hard Water Defense</div>
-              <div class="spec-val">100% Anti-Limescale</div>
-            </div>
-          </div>
-
-          <button class="btn btn-primary btn-sm" data-open-modal="bookingModal">
-            <span>Protect Shower Enclosure</span>
-            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Tab 4: Curtains & Rugs -->
-      <div class="surface-tab-content" id="tab-curtains">
-        <div class="surface-card-visual tilt-card">
-          <img src="assets/images/macro-liquid.jpg" alt="Silk & Wool Rugs Nanocoating Guard">
-        </div>
-        <div class="surface-info">
-          <h3>Handwoven Rugs &amp; Drapery Guard</h3>
-          <p style="color: var(--text-muted); line-height: 1.65;">
-            Expensive Kashmiri silk, Persian wool rugs, and floor-to-ceiling drapery attract dust, UV degradation, and accidental pet or drink spills. Our ultra-light mist coats every fiber 360 degrees without adding weight or altering draping fluidity.
-          </p>
-
-          <div class="surface-specs-grid">
-            <div class="spec-box">
-              <div class="spec-title">UV Protection</div>
-              <div class="spec-val">Anti-Fading Shield</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Warranty</div>
-              <div class="spec-val">2 Years</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Pet Odor Defense</div>
-              <div class="spec-val" style="color: var(--primary);">Zero Adsorption</div>
-            </div>
-            <div class="spec-box">
-              <div class="spec-title">Application</div>
-              <div class="spec-val">Pneumatic Micron Mist</div>
-            </div>
-          </div>
-
-          <button class="btn btn-primary btn-sm" data-open-modal="bookingModal">
-            <span>Protect Rugs &amp; Curtains</span>
-            <i data-lucide="chevron-right" style="width: 14px; height: 14px;"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       INVISEL™ PRODUCTS & DIY SURFACE CARE SHOP
-       =================================================================== -->
-  <section class="section-products" id="products">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="package" style="width: 14px; height: 14px;"></i>
-          <span>Invisel™ Surface Care Range</span>
-        </div>
-        <h2 class="section-title">
-          DIY Nanocoating Kits &amp; <span class="text-gradient">Surface Protectors</span>
-        </h2>
-        <p class="section-desc">
-          Prefer hands-on protection? The same patented hydrophobic technology is available in easy-to-use DIY spray kits delivered directly to your doorstep.
-        </p>
-      </div>
-
-      <!-- Category Filter Bar -->
-      <div class="product-filter-bar">
-        <button class="product-filter-btn active" data-filter="all">All Protectors (8)</button>
-        <button class="product-filter-btn" data-filter="combos">Bestseller Combos</button>
-        <button class="product-filter-btn" data-filter="fabric">Sofa &amp; Fabric</button>
-        <button class="product-filter-btn" data-filter="glass">Glass &amp; Bathroom</button>
-        <button class="product-filter-btn" data-filter="marble">Marble &amp; Granite</button>
-        <button class="product-filter-btn" data-filter="wood-leather">Wood &amp; Leather</button>
-      </div>
-
-      <!-- Products Grid -->
-      <div class="products-grid" id="productsGrid">
-        
-        <!-- Product 1: Sofa & Fabric Combo -->
-        <div class="product-card tilt-card" data-category="combos fabric">
-          <span class="product-badge-save">SAVE ₹1,000</span>
-          <span class="product-badge-tag">#1 Bestseller</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/sofa-combo.jpg" alt="Sofa & Fabric Stain Repellent Combo">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(291 reviews)</span>
-            </div>
-            <h3 class="product-title">Sofa &amp; Fabric Stain Repellent Combo</h3>
-            <p class="product-desc">Covers 3-seater sofa. Creates an invisible stain barrier against chai, coffee, wine &amp; oil for up to 6 months.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹1,999</span>
-              <span class="product-orig-price">₹2,999</span>
-            </div>
-            <button class="btn-add-cart" data-id="p1" data-title="Sofa & Fabric Stain Repellent Combo" data-price="1999" data-img="assets/images/invisel/sofa-combo.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 2: Glass & Ceramics Combo -->
-        <div class="product-card tilt-card" data-category="combos glass">
-          <span class="product-badge-save">SAVE ₹700</span>
-          <span class="product-badge-tag">Top Rated</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/sofa-combo.jpg" alt="Glass & Ceramics Cleaning & Protection Combo">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(384 reviews)</span>
-            </div>
-            <h3 class="product-title">Glass &amp; Ceramics Cleaning &amp; Protection Combo</h3>
-            <p class="product-desc">Covers up to 3 bathrooms. Removes existing hard water scales and keeps glass crystal clear for 3+ months.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹1,599</span>
-              <span class="product-orig-price">₹2,299</span>
-            </div>
-            <button class="btn-add-cart" data-id="p2" data-title="Glass & Ceramics Protection Combo" data-price="1599" data-img="assets/images/invisel/sofa-combo.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 3: Bathroom Protector Kit -->
-        <div class="product-card tilt-card" data-category="combos glass">
-          <span class="product-badge-save">SAVE 41%</span>
-          <span class="product-badge-tag">Complete Kit</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/bathroom-kit.jpg" alt="Bathroom Protector 3-in-1 Kit">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(306 reviews)</span>
-            </div>
-            <h3 class="product-title">Bathroom Protector Kit (3-in-1 Complete)</h3>
-            <p class="product-desc">Comprehensive shield for shower cubicles, chrome taps, mirrors, and ceramic wall tiles against calcium etching.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹1,999</span>
-              <span class="product-orig-price">₹3,399</span>
-            </div>
-            <button class="btn-add-cart" data-id="p3" data-title="Bathroom Protector Kit (3-in-1)" data-price="1999" data-img="assets/images/invisel/bathroom-kit.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 4: Ultimate All-In-One Combo -->
-        <div class="product-card tilt-card" data-category="combos">
-          <span class="product-badge-save">SAVE ₹2,300</span>
-          <span class="product-badge-tag">Value Bundle</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/ultimate-combo.jpg" alt="Ultimate Invisel Protector Combo Pack of 5">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(154 reviews)</span>
-            </div>
-            <h3 class="product-title">Ultimate Protector Combo (Pack of 5)</h3>
-            <p class="product-desc">All 5 Invisel nano-coatings for Sofa, Marble, Glass, Wood, and Leather plus application microfiber pads.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹4,999</span>
-              <span class="product-orig-price">₹7,299</span>
-            </div>
-            <button class="btn-add-cart" data-id="p4" data-title="Ultimate Invisel Protector Combo" data-price="4999" data-img="assets/images/invisel/ultimate-combo.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 5: Marble & Granite Combo -->
-        <div class="product-card tilt-card" data-category="marble">
-          <span class="product-badge-save">SAVE ₹700</span>
-          <span class="product-badge-tag">Natural Stone</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/marble-combo.jpg" alt="Marble & Granite Stain Repellent Combo">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(215 reviews)</span>
-            </div>
-            <h3 class="product-title">Marble &amp; Granite Stain Repellent Combo</h3>
-            <p class="product-desc">Penetrates natural stone pores to stop turmeric (haldi), lemon acid, and oil stains. Includes surface cleaner.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹1,799</span>
-              <span class="product-orig-price">₹2,499</span>
-            </div>
-            <button class="btn-add-cart" data-id="p5" data-title="Marble & Granite Stain Repellent Combo" data-price="1799" data-img="assets/images/invisel/marble-combo.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 6: Wood Protector -->
-        <div class="product-card tilt-card" data-category="wood-leather">
-          <span class="product-badge-save">SAVE ₹300</span>
-          <span class="product-badge-tag">Wood Care</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/wood-protector.jpg" alt="Wood Protector and Enhancer 150ml">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(182 reviews)</span>
-            </div>
-            <h3 class="product-title">Wood Protector &amp; Grain Enhancer (150ml)</h3>
-            <p class="product-desc">Deep nourishes natural timber and veneer. Prevents cup water rings, moisture rot, and UV fading.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹499</span>
-              <span class="product-orig-price">₹799</span>
-            </div>
-            <button class="btn-add-cart" data-id="p6" data-title="Wood Protector & Enhancer 150ml" data-price="499" data-img="assets/images/invisel/wood-protector.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 7: Leather Protector -->
-        <div class="product-card tilt-card" data-category="wood-leather">
-          <span class="product-badge-save">SAVE ₹300</span>
-          <span class="product-badge-tag">Leather Care</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/leather-protector.jpg" alt="Leather Protector and Enhancer 150ml">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(143 reviews)</span>
-            </div>
-            <h3 class="product-title">Leather Protector &amp; Shiner (150ml)</h3>
-            <p class="product-desc">Restores rich suppleness to leather couches and car upholstery. Zero greasiness with water-repellent seal.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹499</span>
-              <span class="product-orig-price">₹799</span>
-            </div>
-            <button class="btn-add-cart" data-id="p7" data-title="Leather Protector & Shiner 150ml" data-price="499" data-img="assets/images/invisel/leather-protector.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Product 8: Kitchen Stain Remover -->
-        <div class="product-card tilt-card" data-category="kitchen">
-          <span class="product-badge-save">SAVE ₹100</span>
-          <span class="product-badge-tag">Deep Clean</span>
-          <div class="product-media">
-            <img src="assets/images/invisel/kitchen-remover.jpg" alt="Kitchen Stain Remover 250ml Foaming Spray">
-          </div>
-          <div class="product-body">
-            <div class="product-rating">
-              <span>★★★★★</span>
-              <span class="review-count">(320 reviews)</span>
-            </div>
-            <h3 class="product-title">Kitchen Stain Remover (250ml Foaming Spray)</h3>
-            <p class="product-desc">Heavy-duty enzyme foam that breaks down burnt cooking grease, chimney soot, and sticky oil residues instantly.</p>
-            <div class="product-price-row">
-              <span class="product-curr-price">₹399</span>
-              <span class="product-orig-price">₹499</span>
-            </div>
-            <button class="btn-add-cart" data-id="p8" data-title="Kitchen Stain Remover 250ml Spray" data-price="399" data-img="assets/images/invisel/kitchen-remover.jpg">
-              <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i>
-              <span>Add to Cart</span>
-            </button>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       3-STEP SCIENTIFIC APPLICATION PROCESS
-       =================================================================== -->
-  <section class="section-process" id="process">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="microscope" style="width: 14px; height: 14px;"></i>
-          <span>Precision Application</span>
-        </div>
-        <h2 class="section-title">
-          Simple. Scientific. <span class="text-gradient">Guaranteed.</span>
-        </h2>
-        <p class="section-desc">
-          Our certified technicians perform every doorstep service using medical-grade micron atomizers and ISO-certified non-hazardous formulas.
-        </p>
-      </div>
-
-      <div class="process-cards-grid">
-        <!-- Step 1 -->
-        <div class="process-card tilt-card">
-          <span class="step-num">01</span>
-          <div class="process-icon">
-            <i data-lucide="search" style="width: 26px; height: 26px;"></i>
-          </div>
-          <h3>Inspect &amp; Deep Decontaminate</h3>
-          <p>
-            We analyze your surface material weave, pH levels, and pre-existing stains. A specialized dry vacuuming and fiber neutralizer removes micro-dust particles from deep within yarn pores.
-          </p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="process-card tilt-card">
-          <span class="step-num">02</span>
-          <div class="process-icon">
-            <i data-lucide="spray-can" style="width: 26px; height: 26px;"></i>
-          </div>
-          <h3>Precision Molecular Atomization</h3>
-          <p>
-            Using low-pressure high-volume (HVLP) micron spray systems, our technicians apply an ultra-fine mist that bonds at the molecular level, wrapping each individual thread in a transparent silica cocoon.
-          </p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="process-card tilt-card">
-          <span class="step-num">03</span>
-          <div class="process-icon">
-            <i data-lucide="shield-check" style="width: 26px; height: 26px;"></i>
-          </div>
-          <h3>Rapid Ambient Cross-Link Cure</h3>
-          <p>
-            The coating cross-links and hardens within 4 to 6 hours at room temperature. We conduct a live hydrophobic water bead drop test in front of you before presenting your official warranty certificate.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       PRODUCT USP & HIGHLIGHTS
-       =================================================================== -->
-  <section class="section-usps">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="award" style="width: 14px; height: 14px;"></i>
-          <span>Why India Trusts INVISEL™</span>
-        </div>
-        <h2 class="section-title">The Standard of <span class="text-gradient">Surface Excellence</span></h2>
-      </div>
-
-      <div class="usp-grid">
-        <div class="usp-card">
-          <div class="usp-icon">
-            <i data-lucide="ban"></i>
-          </div>
-          <h4>Zero Silicone, Wax or Oil</h4>
-          <p>Unlike cheap market sprays that turn yellow and greasy under sunlight, our mineral silica formula never breaks down.</p>
-        </div>
-
-        <div class="usp-card">
-          <div class="usp-icon">
-            <i data-lucide="heart"></i>
-          </div>
-          <h4>100% Skin, Baby &amp; Pet Safe</h4>
-          <p>Completely non-toxic, hypoallergenic, and odorless once cured. Safe for infant skin contact and curious pets.</p>
-        </div>
-
-        <div class="usp-card">
-          <div class="usp-icon">
-            <i data-lucide="wind"></i>
-          </div>
-          <h4>Maintains Full Breathability</h4>
-          <p>Permeable to air vapor, preventing mildew, trapped humidity, and bad odors inside cushions and foam.</p>
-        </div>
-
-        <div class="usp-card">
-          <div class="usp-icon">
-            <i data-lucide="shield"></i>
-          </div>
-          <h4>Invisible To Sight &amp; Touch</h4>
-          <p>The 0.001 micron layer is 5,000 times thinner than human hair. You cannot see, feel, or smell it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       INTERACTIVE ROOM ESTIMATOR & WARRANTY CALCULATOR
-       =================================================================== -->
-  <section class="section-calculator" id="calculator">
-    <div class="container">
-      <div class="calculator-card">
-        <div class="calc-inputs-side">
-          <div class="badge-pill" style="margin-bottom: 16px;">
-            <i data-lucide="calculator" style="width: 14px; height: 14px;"></i>
-            <span>Live Price &amp; Warranty Estimator</span>
-          </div>
-          <h2 style="font-size: 2.2rem; margin-bottom: 12px;">Calculate Your Home Shield</h2>
-          <p style="color: var(--text-muted); margin-bottom: 32px;">
-            Select your apartment size and desired surfaces to generate an immediate estimated quote and multi-year savings projection.
-          </p>
-
-          <div class="calc-options-group">
-            <span class="calc-label">1. Select Home / Space Size</span>
-            <div class="calc-selector-row">
-              <button class="calc-chip active" data-room="1-2" data-multiplier="1" data-warranty="1 Year">2-3 Seater Sofa</button>
-              <button class="calc-chip" data-room="2bhk" data-multiplier="1.6" data-warranty="2 Years">2 BHK Flat</button>
-              <button class="calc-chip" data-room="3bhk" data-multiplier="2.4" data-warranty="3 Years">3 BHK Premium</button>
-              <button class="calc-chip" data-room="4bhk" data-multiplier="3.2" data-warranty="3 Years">4 BHK / Duplex</button>
-              <button class="calc-chip" data-room="villa" data-multiplier="4.8" data-warranty="3 Years">Luxury Villa</button>
-            </div>
-          </div>
-
-          <div class="calc-options-group">
-            <span class="calc-label">2. Select Surfaces to Protect</span>
-            <div class="calc-selector-row">
-              <button class="calc-chip active" data-surface="sofa">Living Room Sofa</button>
-              <button class="calc-chip active" data-surface="dining">Dining Chairs (6x)</button>
-              <button class="calc-chip active" data-surface="curtains">Drapery &amp; Sheers</button>
-              <button class="calc-chip" data-surface="rugs">Imported Rugs</button>
-              <button class="calc-chip" data-surface="marble">Marble Countertops</button>
-              <button class="calc-chip" data-surface="glass">Shower Partitions</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="calc-summary-panel">
-          <div class="summary-price-tag">Estimated Package Value</div>
-          <div class="summary-amount" id="calcEstimatedPrice"><span>₹</span>8,999</div>
-          <div class="badge-pill" id="calcWarranty" style="background: rgba(45, 212, 191, 0.15); margin-bottom: 20px;">
-            1 Year Full Warranty
-          </div>
-
-          <ul class="summary-benefits">
-            <li>
-              <i data-lucide="check-circle" style="width: 16px; height: 16px;"></i>
-              <span>Free Doorstep Inspection &amp; Moisture Testing</span>
-            </li>
-            <li>
-              <i data-lucide="check-circle" style="width: 16px; height: 16px;"></i>
-              <span>Live Hydrophobic Drop Demonstration</span>
-            </li>
-            <li>
-              <i data-lucide="check-circle" style="width: 16px; height: 16px;"></i>
-              <span>Estimated 3-Yr Steam Cleaning Savings: <strong id="calcSavings" style="color: var(--accent-gold);">₹16,200</strong></span>
-            </li>
-          </ul>
-
-          <button class="btn btn-primary" style="width: 100%;" data-open-modal="bookingModal" id="calcBookBtn">
-            <span>Lock In This Estimate</span>
-            <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       CITIES COVERED IN INDIA
-       =================================================================== -->
-  <section class="section-cities">
-    <div class="container" style="text-align: center;">
-      <div class="badge-pill">
-        <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i>
-        <span>Doorstep Fleet Across India</span>
-      </div>
-      <h3 style="font-size: 1.8rem; margin: 16px 0 8px;">Available in 25+ Major Cities</h3>
-      <p style="color: var(--text-muted); font-size: 0.95rem;">Our certified service engineers are stationed across top metropolitan hubs for same-day &amp; scheduled visits.</p>
-
-      <div class="cities-grid">
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Mumbai</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Delhi-NCR</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Bengaluru</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Hyderabad</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Pune</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Chennai</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Kolkata</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Ahmedabad</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Surat</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Jaipur</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary);"></i> Chandigarh</div>
-        <div class="city-pill"><i data-lucide="navigation" style="width: 12px; height: 12px; color: var(--primary subterranean);"></i> Goa</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       TESTIMONIALS & REVIEWS
-       =================================================================== -->
-  <section class="section-reviews">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="star" style="width: 14px; height: 14px;"></i>
-          <span>Customer Stories</span>
-        </div>
-        <h2 class="section-title">Loved by <span class="text-gradient">Homeowners &amp; Architects</span></h2>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="review-card tilt-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">
-            "We have a 7-seater cream linen sectional and two toddlers. Last week, someone knocked over a whole cup of filter coffee. I wiped it with a dry tissue in 10 seconds — not a single shadow or water ring! Absolutely unbelievable."
-          </p>
-          <div class="reviewer-meta">
-            <div class="reviewer-avatar">AK</div>
-            <div>
-              <div class="reviewer-name">Anita Kulkarni</div>
-              <div class="reviewer-location">Bandra West, Mumbai</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card tilt-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">
-            "As an interior designer, I recommend INVISEL to every high-end client. We used the Marble &amp; Granite Repellent in a 4BHK duplex in Jubilee Hills. Two years later, the marble is flawless — not a single turmeric stain."
-          </p>
-          <div class="reviewer-meta">
-            <div class="reviewer-avatar">RM</div>
-            <div>
-              <div class="reviewer-name">Rohan Mehta (Architect)</div>
-              <div class="reviewer-location">Jubilee Hills, Hyderabad</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="review-card tilt-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-quote">
-            "The technician was punctual, wore clean protective shoe covers, and finished our 5-seater sofa and dining chairs in 90 minutes. He even did a live water drop test before leaving. Truly 5-star professional service."
-          </p>
-          <div class="reviewer-meta">
-            <div class="reviewer-avatar">VS</div>
-            <div>
-              <div class="reviewer-name">Vikramaditya Singhania</div>
-              <div class="reviewer-location">Indiranagar, Bengaluru</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       FAQ ACCORDION
-       =================================================================== -->
-  <section class="section-faq" id="faq">
-    <div class="container">
-      <div class="section-head">
-        <div class="badge-pill">
-          <i data-lucide="help-circle" style="width: 14px; height: 14px;"></i>
-          <span>Frequently Asked Questions</span>
-        </div>
-        <h2 class="section-title">Everything You <span class="text-gradient">Need To Know</span></h2>
-      </div>
-
-      <div class="faq-accordion">
-        <div class="faq-item active">
-          <button class="faq-question">
-            <span>Does nanocoating change the color, texture or softness of my sofa?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer" style="max-height: 200px;">
-            <p>Not at all. The silica nano-particles are 0.001 micron in size (5,000 times thinner than a human hair). They encapsulate individual fibers rather than filling the air pockets between them. Your fabric remains 100% identical in touch, drape, and breathability.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How do I clean up spills once the sofa is coated?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Simply take a clean, dry tissue paper or microfiber cloth and gently dab the beads of liquid. The liquid will be absorbed directly into the cloth without touching the fabric yarn. No vigorous rubbing or soap detergents needed!</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Is the coating safe for babies, kids, and pets?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Yes, completely. Once the solution cures (within 4-6 hours), it is biologically inert, hypoallergenic, non-flammable, and zero-VOC. It poses zero danger even if your pets lick or sleep on the sofa.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>How long does the protection last and what does the warranty cover?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Depending on your chosen package, our warranty covers 1 to 3 years. If any coated area loses its hydrophobic repellency under normal residential usage during the warranty period, our technician will re-apply the coating free of charge.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Can this be applied to old or already stained sofas?</span>
-            <span class="faq-icon">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Yes. Our technicians begin with a deep fiber decontamination and stain neutralization step to remove existing grime and oils before applying the nanocoat matrix.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       FINAL CTA BANNER
-       =================================================================== -->
-  <section class="section-cta">
-    <div class="container">
-      <div class="cta-box">
-        <h2>Ready To Shield Your Furniture Forever?</h2>
-        <p>Book a certified doorstep specialist today. Enjoy 1-3 years of peace of mind against tea, coffee, wine, and hard water stains.</p>
-        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <button class="btn btn-primary" data-open-modal="bookingModal" id="footerCtaBtn">
-            <i data-lucide="calendar" style="width: 18px; height: 18px;"></i>
-            <span>Schedule Doorstep Visit</span>
-          </button>
-          <a href="https://wa.me/919876543210?text=Hi,%20I%20would%20like%20to%20get%20a%20quote%20for%20nanocoating%20protection." target="_blank" rel="noopener" class="btn btn-secondary">
-            <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
-            <span>Chat on WhatsApp</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       FOOTER
-       =================================================================== -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="brand-logo">
-          <div class="logo-symbol">I</div>
-          <span class="brand-text">INVI<span>SEL</span></span>
-        </a>
-        <p>
-          India's first nano-coating surface care brand. Engineered for sofas, marble, glass, wood and leather — invisible protection for every home.
-        </p>
-        <div style="display: flex; gap: 14px; color: var(--text-muted); font-size: 0.85rem;">
-          <span>ISO 9001:2015 Certified</span> • <span>Zero VOC</span> • <span>Non-Toxic</span>
-        </div>
-      </div>
-
-      <div class="footer-col">
-        <h4>Surfaces</h4>
-        <ul class="footer-links">
-          <li><a href="#services">Sofas &amp; Couches</a></li>
-          <li><a href="#services">Dining Chairs</a></li>
-          <li><a href="#services">Italian Marble Tops</a></li>
-          <li><a href="#services">Shower Partitions</a></li>
-          <li><a href="#services">Silk &amp; Wool Rugs</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul class="footer-links">
-          <li><a href="#process">Scientific Process</a></li>
-          <li><a href="#simulator">Hydrophobic Demo</a></li>
-          <li><a href="#comparison">Before &amp; After</a></li>
-          <li><a href="#calculator">Pricing Calculator</a></li>
-          <li><a href="#faq">Frequently Asked</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Contact &amp; Support</h4>
-        <ul class="footer-links">
-          <li><a href="tel:+919876543210">+91 98765 43210</a></li>
-          <li><a href="mailto:support@invisel.in">support@invisel.in</a></li>
-          <li><span>Serving 25+ Metro Cities Across India</span></li>
-          <li><span>Hours: 9:00 AM – 8:00 PM (All 7 Days)</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <div>© 2026 INVISEL Technologies India Pvt. Ltd. All rights reserved.</div>
-      <div style="display: flex; gap: 24px;">
-        <a href="#" style="color: var(--text-dim); text-decoration: none;">Privacy Policy</a>
-        <a href="#" style="color: var(--text-dim); text-decoration: none;">Terms of Service</a>
-        <a href="#" style="color: var(--text-dim); text-decoration: none;">Warranty Policy</a>
-      </div>
-    </div>
-  </footer>
-  </div><!-- end .site-frame -->
-
-  <!-- ===================================================================
-       BOOKING & CONSULTATION MODAL
-       =================================================================== -->
-  <div class="modal-overlay" id="bookingModal">
-    <div class="modal-card">
-      <button class="modal-close-btn" aria-label="Close modal">✕</button>
-      <div class="badge-pill" style="margin-bottom: 12px;">
-        <i data-lucide="shield" style="width: 14px; height: 14px;"></i>
-        <span>Doorstep Surface Protection</span>
-      </div>
-      <h3 style="font-size: 1.8rem; margin-bottom: 6px;">Book Your Free Consultation</h3>
-      <p style="color: var(--text-muted); font-size: 0.92rem;">
-        Lock in your estimated rate with a complimentary live water drop test at your doorstep.
-      </p>
-
-      <form class="booking-form" id="bookingForm">
-        <div class="form-group">
-          <label class="form-label" for="clientName">Full Name</label>
-          <input type="text" id="clientName" class="form-input" placeholder="e.g. Rahul Sharma" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="clientPhone">Phone Number (WhatsApp)</label>
-          <input type="tel" id="clientPhone" class="form-input" placeholder="e.g. +91 98765 43210" required>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
-          <div class="form-group">
-            <label class="form-label" for="clientCity">City</label>
-            <select id="clientCity" class="form-select" required>
-              <option value="">Select City</option>
-              <option value="Mumbai">Mumbai</option>
-              <option value="Delhi">Delhi-NCR</option>
-              <option value="Bengaluru">Bengaluru</option>
-              <option value="Hyderabad">Hyderabad</option>
-              <option value="Pune">Pune</option>
-              <option value="Chennai">Chennai</option>
-              <option value="Kolkata">Kolkata</option>
-              <option value="Ahmedabad">Ahmedabad</option>
-              <option value="Other">Other City</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="clientService">Primary Surface</label>
-            <select id="clientService" class="form-select">
-              <option value="sofa">Living Room Sofa</option>
-              <option value="entire-home">Full Home Combo (Sofa+Marble+Glass)</option>
-              <option value="marble">Italian Marble Tops</option>
-              <option value="glass">Bathroom Shower Glass</option>
-              <option value="commercial">Commercial / Hotel Suite</option>
-            </select>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="margin-top: 10px; width: 100%;">
-          <span>Confirm &amp; Request Visit</span>
-          <i data-lucide="check" style="width: 16px; height: 16px;"></i>
-        </button>
-      </form>
-    </div>
   </div>
 
   <!-- ===================================================================
-       SHOPPING CART DRAWER
+       3. HERO SLIDESHOW (Full-Bleed Wonder Theme Interior Presentation)
        =================================================================== -->
-  <div class="cart-drawer-overlay" id="cartOverlay">
-    <div class="cart-drawer" id="cartDrawer">
-      <div class="cart-drawer-header">
-        <h3>
-          <i data-lucide="shopping-bag" style="width: 20px; height: 20px; color: var(--primary);"></i>
-          <span>Your Cart (<span id="cartDrawerCount">0</span>)</span>
-        </h3>
-        <button class="modal-close-btn" id="closeCartBtn" aria-label="Close Cart" style="position: static;">✕</button>
+  <section class="wt-hero-slider" id="heroSlider" aria-label="Hero Slideshow">
+    <div class="wt-hero-track" id="heroTrack">
+      <!-- Slide 1 -->
+      <article class="wt-hero-slide is-active">
+        <img src="assets/images/hero-sofa.jpg" alt="Luxury Boucle Curved Sofa in Minimalist Living Room" class="wt-hero-bg" fetchpriority="high">
+        <div class="wt-hero-overlay"></div>
+        <div class="site-container wt-hero-content">
+          <span class="wt-hero-subhead">Design For Modern Living</span>
+          <h1 class="wt-hero-title">Art of Invisible Protection</h1>
+          <p class="wt-hero-desc">
+            Preserve the pristine tactile elegance of fine upholstery, natural stone, and bespoke furniture with German SiO2 nanotechnology. 100% invisible, odourless, and breathable.
+          </p>
+          <div class="wt-hero-actions">
+            <a href="#productsSection" class="wt-btn wt-btn-primary">Shop Collection</a>
+            <a href="#shoppableSection" class="wt-btn wt-btn-outline-white">Shop The Look</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 2 -->
+      <article class="wt-hero-slide">
+        <img src="assets/images/marble-glass.jpg" alt="Italian Calacatta Marble Dining Table" class="wt-hero-bg">
+        <div class="wt-hero-overlay"></div>
+        <div class="site-container wt-hero-content">
+          <span class="wt-hero-subhead">Zero Stains &bull; Zero Compromise</span>
+          <h2 class="wt-hero-title">Architectural Marble &amp; Stone Armor</h2>
+          <p class="wt-hero-desc">
+            Impermeable molecular defense against acidic wines, turmeric, oils, and etching. Food-contact safe, long-lasting barrier that preserves natural mineral sheen.
+          </p>
+          <div class="wt-hero-actions">
+            <a href="#productsSection" class="wt-btn wt-btn-primary">Explore Stone Care</a>
+            <a href="#simulator" class="wt-btn wt-btn-outline-white">Watch Spill Test</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Slide 3 -->
+      <article class="wt-hero-slide">
+        <img src="assets/images/invisel-lineup.jpg" alt="Invisel Complete Sanctuary Nano Protection Lineup" class="wt-hero-bg">
+        <div class="wt-hero-overlay"></div>
+        <div class="site-container wt-hero-content">
+          <span class="wt-hero-subhead">Quiet Luxury &bull; Guarded Forever</span>
+          <h2 class="wt-hero-title">Serene Living, Free From Worry</h2>
+          <p class="wt-hero-desc">
+            Designed for high-traffic family homes and refined architectural spaces. Kid and pet friendly, non-hazardous, and easy to apply in 15 minutes.
+          </p>
+          <div class="wt-hero-actions">
+            <a href="#productsSection" class="wt-btn wt-btn-primary">Discover All Sets</a>
+            <a href="#editorial" class="wt-btn wt-btn-outline-white">The Nano Science</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Hero Controls -->
+    <div class="wt-hero-controls">
+      <span class="wt-hero-indicator" id="heroSlideIndicator">01 / 03</span>
+      <button class="wt-hero-nav-btn" id="heroPrevBtn" aria-label="Previous Slide">
+        <i data-lucide="chevron-left" style="width: 20px; height: 20px;"></i>
+      </button>
+      <button class="wt-hero-nav-btn" id="heroNextBtn" aria-label="Next Slide">
+        <i data-lucide="chevron-right" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. SHOP BY DEPARTMENT / MOSAIC COLLAGE (Wonder Theme wt-mosaic)
+       =================================================================== -->
+  <section class="wt-mosaic-section" id="mosaicSection">
+    <div class="site-container">
+      <div class="section-headline">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">Curated By Surface</span>
+        <h2>Shop By Department</h2>
+        <p>Explore custom-engineered nano formulations tailored for every luxury texture in your residence.</p>
       </div>
 
-      <div class="cart-drawer-body" id="cartDrawerBody">
-        <div class="cart-empty-message">
-          <i data-lucide="shopping-cart" style="width: 48px; height: 48px; opacity: 0.3; margin: 0 auto 12px; display: block;"></i>
-          <p>Your cart is empty.</p>
-          <a href="#products" class="btn btn-secondary btn-sm" style="margin-top: 14px;" id="emptyCartShopBtn">Explore DIY Protectors</a>
+      <div class="wt-mosaic-grid">
+        <!-- Main Large Mosaic Card -->
+        <a href="#productsSection" class="wt-mosaic-card wt-mosaic-card--main">
+          <img src="assets/images/hero-sofa.jpg" alt="Living Room &amp; Fabric Care" class="wt-mosaic-bg">
+          <div class="wt-mosaic-gradient"></div>
+          <div class="wt-mosaic-content">
+            <span class="wt-mosaic-tag">Department 01</span>
+            <h3 class="wt-mosaic-title">Living Room &amp; Fine Boucle</h3>
+            <span class="wt-mosaic-action">Explore Fabric Shield <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+          </div>
+        </a>
+
+        <!-- Top Right Card -->
+        <a href="#productsSection" class="wt-mosaic-card">
+          <img src="assets/images/marble-glass.jpg" alt="Dining &amp; Natural Stone Care" class="wt-mosaic-bg">
+          <div class="wt-mosaic-gradient"></div>
+          <div class="wt-mosaic-content">
+            <span class="wt-mosaic-tag">Department 02</span>
+            <h3 class="wt-mosaic-title">Honed Marble &amp; Quartz</h3>
+            <span class="wt-mosaic-action">Explore Stone Armor <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+          </div>
+        </a>
+
+        <!-- Bottom Right Card -->
+        <a href="#productsSection" class="wt-mosaic-card">
+          <img src="assets/images/invisel-lineup.jpg" alt="Bath, Glass &amp; Shower Enclosures" class="wt-mosaic-bg">
+          <div class="wt-mosaic-gradient"></div>
+          <div class="wt-mosaic-content">
+            <span class="wt-mosaic-tag">Department 03</span>
+            <h3 class="wt-mosaic-title">Bath &amp; Architectural Glass</h3>
+            <span class="wt-mosaic-action">Explore Glass Guard <i data-lucide="arrow-right" style="width: 15px; height: 15px;"></i></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. FEATURED COLLECTIONS / "THE DESIGN EDIT" TABS & PRODUCT GRID
+       =================================================================== -->
+  <section class="wt-products-section" id="productsSection">
+    <div class="site-container">
+      <div class="section-headline">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">The Design Edit</span>
+        <h2>Curated Design For Modern Living</h2>
+        <p>Formulations tested and approved by premier interior designers and architectural restoration experts.</p>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="wt-tabs-wrapper" role="tablist">
+        <button class="wt-tab-btn is-active" data-category="all" role="tab">All Essentials</button>
+        <button class="wt-tab-btn" data-category="fabric" role="tab">Fabric &amp; Upholstery</button>
+        <button class="wt-tab-btn" data-category="marble" role="tab">Marble &amp; Stone</button>
+        <button class="wt-tab-btn" data-category="glass" role="tab">Glass &amp; Bath</button>
+        <button class="wt-tab-btn" data-category="bundles" role="tab">Complete Home Bundles</button>
+      </div>
+
+      <!-- Product Cards Grid (Rendered by JS) -->
+      <div class="wt-product-grid" id="productGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. SHOP THE ROOM (LOOKBOOK WITH PULSING INTERACTIVE HOTSPOTS)
+       =================================================================== -->
+  <section class="wt-shoppable-section" id="shoppableSection">
+    <div class="site-container">
+      <div class="section-headline">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">Interior Lookbook</span>
+        <h2>Shop The Room</h2>
+        <p>Interact with the hotspots below to discover tailored nano protection for every focal piece in this architectural living salon.</p>
+      </div>
+
+      <div class="wt-shoppable-container">
+        <img src="assets/images/hero-sofa.jpg" alt="Architectural Salon with Boucle Sofa and Travertine" class="wt-shoppable-bg">
+
+        <!-- Hotspot 1: Boucle Sofa -->
+        <div class="wt-hotspot" style="top: 64%; left: 42%;">
+          <div class="wt-dot">
+            <div class="wt-dot-pulse"></div>
+            <div class="wt-dot-circle"></div>
+          </div>
+          <div class="wt-hotspot-card">
+            <img src="assets/images/hero-sofa.jpg" alt="Fabric Shield" class="wt-hotspot-thumb">
+            <div class="wt-hotspot-details">
+              <div>
+                <h4 class="wt-hotspot-title">Invisel™ Fabric &amp; Boucle Shield</h4>
+                <div class="wt-hotspot-surface">Curved Boucle Sofa Care</div>
+                <div class="wt-hotspot-price">₹1,899</div>
+              </div>
+              <button class="wt-hotspot-btn" data-product-id="inv-fabric-shield">
+                <span>Add to Bag</span> <i data-lucide="plus" style="width: 12px; height: 12px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspot 2: Marble & Travertine Table -->
+        <div class="wt-hotspot" style="top: 76%; left: 68%;">
+          <div class="wt-dot">
+            <div class="wt-dot-pulse"></div>
+            <div class="wt-dot-circle"></div>
+          </div>
+          <div class="wt-hotspot-card">
+            <img src="assets/images/marble-glass.jpg" alt="Marble Armor" class="wt-hotspot-thumb">
+            <div class="wt-hotspot-details">
+              <div>
+                <h4 class="wt-hotspot-title">Invisel™ Marble &amp; Granite Armor</h4>
+                <div class="wt-hotspot-surface">Travertine Coffee Table</div>
+                <div class="wt-hotspot-price">₹2,199</div>
+              </div>
+              <button class="wt-hotspot-btn" data-product-id="inv-marble-armor">
+                <span>Add to Bag</span> <i data-lucide="plus" style="width: 12px; height: 12px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hotspot 3: Floor-to-Ceiling Drapes -->
+        <div class="wt-hotspot" style="top: 36%; left: 16%;">
+          <div class="wt-dot">
+            <div class="wt-dot-pulse"></div>
+            <div class="wt-dot-circle"></div>
+          </div>
+          <div class="wt-hotspot-card">
+            <img src="assets/images/macro-liquid.jpg" alt="Drape & Carpet Guard" class="wt-hotspot-thumb">
+            <div class="wt-hotspot-details">
+              <div>
+                <h4 class="wt-hotspot-title">Invisel™ Rug &amp; Carpet Guard</h4>
+                <div class="wt-hotspot-surface">Linen Drapes &amp; Area Rug</div>
+                <div class="wt-hotspot-price">₹1,699</div>
+              </div>
+              <button class="wt-hotspot-btn" data-product-id="inv-rug-carpet">
+                <span>Add to Bag</span> <i data-lucide="plus" style="width: 12px; height: 12px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. EDITORIAL STORYTELLING ("IMAGE WITH TEXT")
+       =================================================================== -->
+  <section class="wt-editorial-section" id="editorial">
+    <div class="site-container">
+      <div class="wt-editorial-grid">
+        <div class="wt-editorial-media">
+          <img src="assets/images/craft-bottling-process.jpg" alt="CoatingWale Precision Cleanroom Bottling, Formulation & Atomized Spray Mist" class="wt-editorial-img" loading="lazy">
+          <div class="wt-editorial-floating-stat">
+            <div class="stat-num">0.3 μm</div>
+            <div class="stat-label">Ultra-Fine Micro-Mist Atomization &bull; Sterile Bottling</div>
+          </div>
+        </div>
+
+        <div class="wt-editorial-content">
+          <span class="eyebrow-pill">Cleanroom Bottling &bull; German Nanotech</span>
+          <h2>Precision Craft From Pure Formula to Micro-Mist</h2>
+          <p>
+            Every bottle of CoatingWale is engineered under sterile cleanroom laboratory standards. Our medical-grade silica nanoparticles form an impenetrable matrix while preserving 100% of the hand-feel, softness, and breathability of luxury furniture.
+          </p>
+          <p>
+            From automated conveyor filling to hand-calibrated rose gold trigger valves, each unit atomizes liquids into a micro-droplet mist that penetrates deep into weave capillaries without puddling or residue.
+          </p>
+
+          <div class="wt-process-steps-strip">
+            <div class="wt-step-chip"><strong>01</strong> Automated Bottling</div>
+            <div class="wt-step-chip"><strong>02</strong> Pure Nano-Filling</div>
+            <div class="wt-step-chip"><strong>03</strong> Fluted Reservoir</div>
+            <div class="wt-step-chip"><strong>04</strong> Batch Certified</div>
+            <div class="wt-step-chip"><strong>05</strong> Micro-Mist Trigger</div>
+            <div class="wt-step-chip"><strong>06</strong> Aurelian™ Reserve</div>
+          </div>
+
+          <div class="wt-specs-grid">
+            <div class="wt-spec-item">
+              <h4>3+ Years</h4>
+              <p>Durable molecular bond through repeated use.</p>
+            </div>
+            <div class="wt-spec-item">
+              <h4>100%</h4>
+              <p>Invisible &amp; breathable with zero surface sheen.</p>
+            </div>
+            <div class="wt-spec-item">
+              <h4>0% VOCs</h4>
+              <p>Water-based, non-flammable, and child safe.</p>
+            </div>
+          </div>
+
+          <a href="#productsSection" class="wt-btn wt-btn-primary">Shop The Collection &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. INTERACTIVE HYDROPHOBIC SPILL SIMULATOR (BEFORE VS AFTER)
+       =================================================================== -->
+  <section class="wt-simulator-section" id="simulator">
+    <div class="site-container">
+      <div class="section-headline">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">Interactive Demonstration</span>
+        <h2>Experience The Invisible Shield</h2>
+        <p>Drag the center divider to witness how wine and liquids behave on untreated fabric versus Invisel™ protected upholstery.</p>
+      </div>
+
+      <div class="wt-simulator-box" id="simBox">
+        <span class="wt-sim-badge wt-sim-badge--left">Untreated: Immediate Absorption</span>
+        <span class="wt-sim-badge wt-sim-badge--right">Invisel: Surface Bead Repulsion</span>
+
+        <!-- Right Base Pane (Treated Surface) -->
+        <div class="wt-sim-img-pane">
+          <img src="assets/images/macro-liquid.jpg" alt="Invisel Protected Hydrophobic Surface" class="wt-sim-img">
+        </div>
+
+        <!-- Left Overlay Pane (Untreated Surface) -->
+        <div class="wt-sim-img-pane wt-sim-img-pane--overlay" id="simOverlay">
+          <img src="assets/images/uncoated-stain.jpg" alt="Untreated Stained Surface" class="wt-sim-img">
+        </div>
+
+        <!-- Draggable Handle -->
+        <div class="wt-sim-handle" id="simHandle" aria-label="Drag to compare surfaces">
+          <i data-lucide="move-horizontal" style="width: 22px; height: 22px;"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. PRESS & ARCHITECTURAL PARTNERS MARQUEE
+       =================================================================== -->
+  <section class="wt-press-section" aria-label="Press and Featured Publications">
+    <div class="wt-press-track">
+      <span class="wt-press-item">Architectural Digest</span>
+      <span class="wt-press-item">Vogue Living</span>
+      <span class="wt-press-item">Elle Decor</span>
+      <span class="wt-press-item">Dwell</span>
+      <span class="wt-press-item">GoodHomes</span>
+      <span class="wt-press-item">Wallpaper*</span>
+      <span class="wt-press-item">Livingetc</span>
+      <!-- Repeated for seamless loop -->
+      <span class="wt-press-item">Architectural Digest</span>
+      <span class="wt-press-item">Vogue Living</span>
+      <span class="wt-press-item">Elle Decor</span>
+      <span class="wt-press-item">Dwell</span>
+      <span class="wt-press-item">GoodHomes</span>
+      <span class="wt-press-item">Wallpaper*</span>
+      <span class="wt-press-item">Livingetc</span>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       10. CLIENT & DESIGNER TESTIMONIALS
+       =================================================================== -->
+  <section class="wt-testimonials-section" id="testimonials">
+    <div class="site-container">
+      <div class="section-headline">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">Client Impressions</span>
+        <h2>Endorsed By Designers &amp; Homeowners</h2>
+        <p>Discover how leading interior decorators and luxury villa owners protect their bespoke commissions.</p>
+      </div>
+
+      <div class="wt-testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="wt-testimonial-card">
+          <div>
+            <div class="wt-stars" style="margin-bottom: 16px;">★★★★★</div>
+            <p class="wt-testimonial-quote">
+              &ldquo;We specify custom Italian boucle for our Mumbai penthouse clients. Invisel is the only coating that preserves the plush, dry hand feel without stiffening the weave.&rdquo;
+            </p>
+          </div>
+          <div class="wt-testimonial-author">
+            <div class="wt-author-name">Ananya Singhania</div>
+            <div class="wt-author-role">Principal Architect, Studio Forma &bull; Mumbai</div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="wt-testimonial-card">
+          <div>
+            <div class="wt-stars" style="margin-bottom: 16px;">★★★★★</div>
+            <p class="wt-testimonial-quote">
+              &ldquo;Our dining table is honed Calacatta Viola marble. A guest knocked over a glass of Cabernet Sauvignon, and it literally gathered into round droplets. Wiped clean with dry paper in 3 seconds.&rdquo;
+            </p>
+          </div>
+          <div class="wt-testimonial-author">
+            <div class="wt-author-name">Vikram Malhotra</div>
+            <div class="wt-author-role">Private Residence &bull; Lutyens Delhi</div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="wt-testimonial-card">
+          <div>
+            <div class="wt-stars" style="margin-bottom: 16px;">★★★★★</div>
+            <p class="wt-testimonial-quote">
+              &ldquo;The DIY spray mist application took barely 15 minutes per sofa. No lingering chemical fumes, safe around my two golden retrievers, and phenomenal water repellency.&rdquo;
+            </p>
+          </div>
+          <div class="wt-testimonial-author">
+            <div class="wt-author-name">Meera Oberoi</div>
+            <div class="wt-author-role">Villa Owner &bull; Goa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       11. CORE VALUE PILLARS (WONDER MULTICOLUMN)
+       =================================================================== -->
+  <section class="wt-pillars-section">
+    <div class="site-container">
+      <div class="wt-pillars-grid">
+        <div class="wt-pillar-item">
+          <div class="wt-pillar-icon">
+            <i data-lucide="shield-check" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4>100% Invisible &amp; Breathable</h4>
+          <p>Zero alteration to color, softness, or tactile grain of fine fabrics.</p>
+        </div>
+
+        <div class="wt-pillar-item">
+          <div class="wt-pillar-icon">
+            <i data-lucide="leaf" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4>Child &amp; Pet Safe</h4>
+          <p>Water-based, fluorocarbon-free, and safe for everyday domestic contact.</p>
+        </div>
+
+        <div class="wt-pillar-item">
+          <div class="wt-pillar-icon">
+            <i data-lucide="clock" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4>15-Minute DIY Application</h4>
+          <p>Spray evenly, allow to cure for 6 hours, and enjoy multi-year resilience.</p>
+        </div>
+
+        <div class="wt-pillar-item">
+          <div class="wt-pillar-icon">
+            <i data-lucide="truck" style="width: 24px; height: 24px;"></i>
+          </div>
+          <h4>Complimentary Express Shipping</h4>
+          <p>Free tracked courier shipping on all orders over ₹999 across India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       12. EDITORIAL NEWSLETTER BANNER
+       =================================================================== -->
+  <section class="wt-newsletter-section">
+    <div class="site-container">
+      <div class="wt-newsletter-box">
+        <span class="eyebrow-pill" style="margin-bottom: 12px;">The Care Circle</span>
+        <h2>Enjoy 10% Off Your First Order</h2>
+        <p>Subscribe to receive curated interior maintenance guides, fabric care dossier from architects, and seasonal releases.</p>
+        <form class="wt-newsletter-form" id="newsletterForm">
+          <input type="email" id="newsletterEmail" class="wt-input-field" placeholder="Enter your email address" required>
+          <button type="submit" class="wt-btn wt-btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       13. LUXURY MULTI-COLUMN FOOTER
+       =================================================================== -->
+  <footer class="wt-footer" id="footer">
+    <div class="site-container">
+      <div class="wt-footer-grid">
+        <!-- Col 1: Brand Statement -->
+        <div class="wt-footer-col">
+          <a href="#" class="wt-logo" aria-label="COATINGWALE Home">
+            <img src="assets/images/logo.png" alt="COATINGWALE - Smart Coatings. Better Surfaces." class="wt-footer-logo-img">
+          </a>
+          <p>
+            India's pioneering smart coating brand for luxury interior surface preservation. Protecting sofas, Italian marble, and architectural glass.
+          </p>
+          <p style="font-size: 12.5px;">
+            Concierge: <strong>care@coatingwale.com</strong><br>
+            Direct: <strong>+91 (0) 800-468-4735</strong>
+          </p>
+          <div class="wt-social-links">
+            <a href="#" class="wt-social-btn" aria-label="Instagram"><i data-lucide="instagram" style="width: 17px; height: 17px;"></i></a>
+            <a href="#" class="wt-social-btn" aria-label="Facebook"><i data-lucide="facebook" style="width: 17px; height: 17px;"></i></a>
+            <a href="#" class="wt-social-btn" aria-label="Pinterest"><i data-lucide="bookmark" style="width: 17px; height: 17px;"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Surfaces -->
+        <div class="wt-footer-col">
+          <h4>Surface Solutions</h4>
+          <ul class="wt-footer-links">
+            <li><a href="#productsSection">Boucle &amp; Velvet Upholstery</a></li>
+            <li><a href="#productsSection">Honed Italian Marble</a></li>
+            <li><a href="#productsSection">Granite &amp; Quartz Counters</a></li>
+            <li><a href="#productsSection">Architectural Shower Glass</a></li>
+            <li><a href="#productsSection">Aniline Leather &amp; Teak</a></li>
+            <li><a href="#productsSection">Hand-Knotted Rugs &amp; Silk</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company & Science -->
+        <div class="wt-footer-col">
+          <h4>The House</h4>
+          <ul class="wt-footer-links">
+            <li><a href="#editorial">German SiO2 Nanotechnology</a></li>
+            <li><a href="#shoppableSection">Interior Lookbook</a></li>
+            <li><a href="#simulator">Hydrophobic Demonstration</a></li>
+            <li><a href="#testimonials">Architectural Partnerships</a></li>
+            <li><a href="#pillars">Environmental Charter</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Client Care -->
+        <div class="wt-footer-col">
+          <h4>Client Concierge</h4>
+          <ul class="wt-footer-links">
+            <li><a href="#footer">Application &amp; Spray Guide</a></li>
+            <li><a href="#footer">Surface Coverage Calculator</a></li>
+            <li><a href="#footer">Track Courier Shipment</a></li>
+            <li><a href="#footer">Warranty Registration (3-Year)</a></li>
+            <li><a href="#footer">Returns &amp; Satisfaction Guarantee</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Location / Flagship -->
+        <div class="wt-footer-col">
+          <h4>Studio &amp; Labs</h4>
+          <p>
+            INVISEL Innovations Lab<br>
+            Level 4, Horizon One<br>
+            Bandra Kurla Complex (BKC)<br>
+            Mumbai, Maharashtra 400051
+          </p>
+          <div style="font-size: 12px; color: var(--color-footer-copy); margin-top: 14px;">
+            Monday &ndash; Saturday: 10:00 &ndash; 19:00 IST
+          </div>
         </div>
       </div>
 
-      <div class="cart-drawer-footer" id="cartDrawerFooter" style="display: none;">
-        <div class="cart-subtotal-row">
-          <span>Subtotal:</span>
-          <span id="cartSubtotal" style="color: var(--primary); font-family: var(--font-display); font-size: 1.3rem;">₹0</span>
+      <!-- Footer Bottom Bar -->
+      <div class="wt-footer-bottom">
+        <div>
+          &copy; 2026 COATINGWALE™ Surface Technologies. All rights reserved.
         </div>
-        <p style="font-size: 0.78rem; color: var(--text-dim); margin-bottom: 14px; text-align: center;">
-          ✓ Free Express Shipping Across India • 100% Damage-Proof Transit
-        </p>
-        <button class="btn btn-primary" style="width: 100%;" id="checkoutBtn">
+        <div class="wt-payment-icons">
+          <span class="wt-payment-badge">UPI</span>
+          <span class="wt-payment-badge">VISA</span>
+          <span class="wt-payment-badge">MASTERCARD</span>
+          <span class="wt-payment-badge">RUPAY</span>
+          <span class="wt-payment-badge">NET BANKING</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       14. SLIDE-OUT CART DRAWER (Shopify Wonder Theme Architecture)
+       =================================================================== -->
+  <div class="wt-cart-drawer-overlay" id="cartDrawerOverlay">
+    <aside class="wt-cart-drawer" role="dialog" aria-modal="true" aria-label="Shopping Cart">
+      <!-- Cart Header -->
+      <div class="wt-cart-header">
+        <h3>Shopping Bag</h3>
+        <button class="wt-cart-close" id="closeCartBtn" aria-label="Close Cart">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <!-- Free Shipping Progress Meter -->
+      <div class="wt-cart-meter-box">
+        <div id="shippingMeterText">
+          Add <strong>₹999</strong> to unlock Free Express Delivery across India
+        </div>
+        <div class="wt-meter-progress-track">
+          <div class="wt-meter-progress-fill" id="shippingMeterFill"></div>
+        </div>
+      </div>
+
+      <!-- Cart Items Body -->
+      <div class="wt-cart-items-body" id="cartItemsContainer">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+
+      <!-- Cart Footer -->
+      <div class="wt-cart-footer">
+        <div class="wt-cart-subtotal-row">
+          <span>Estimated Total</span>
+          <span class="wt-cart-subtotal-val" id="cartSubtotal">₹0</span>
+        </div>
+        <p class="wt-cart-tax-notice">Taxes and white-glove express delivery calculated at final checkout.</p>
+        <button class="wt-btn wt-btn-primary wt-cart-checkout-btn" id="checkoutBtn">
           <span>Proceed To Checkout</span>
           <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
         </button>
       </div>
+    </aside>
+  </div>
+
+  <!-- ===================================================================
+       15. QUICK VIEW MODAL
+       =================================================================== -->
+  <div class="wt-modal-overlay" id="quickViewModal" role="dialog" aria-modal="true" aria-label="Product Details">
+    <div class="wt-modal-content">
+      <button class="wt-modal-close" id="quickViewClose" aria-label="Close Details">
+        <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+      </button>
+
+      <div class="wt-modal-body-grid">
+        <div class="wt-modal-gallery">
+          <img src="" alt="" id="modalImg" class="wt-modal-img">
+        </div>
+
+        <div class="wt-modal-info">
+          <span class="wt-product-category" id="modalCategory">Category</span>
+          <h2 style="font-size: 24px; margin-bottom: 12px;" id="modalTitle">Product Title</h2>
+
+          <div class="wt-price-box" style="margin-bottom: 18px;">
+            <span class="wt-price-current" style="font-size: 22px;" id="modalPrice">₹0</span>
+            <span class="wt-price-compare" style="font-size: 16px;" id="modalComparePrice">₹0</span>
+          </div>
+
+          <p style="font-size: 14.5px; color: var(--color-body-text); line-height: 1.6; margin-bottom: 20px;" id="modalDesc"></p>
+
+          <div style="background-color: var(--color-sand-light); border: 1px solid var(--color-border); padding: 12px 16px; border-radius: 4px; margin-bottom: 20px;">
+            <strong style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 4px;">Spray Coverage</strong>
+            <span style="font-size: 13px; color: var(--color-body-text-light);" id="modalCoverage"></span>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 8px;">Select Bottle Size</label>
+            <div class="wt-swatches" id="modalSwatches"></div>
+          </div>
+
+          <button class="wt-btn wt-btn-primary" id="modalAddToCartBtn" style="width: 100%;">
+            <span>Add To Bag</span>
+            <i data-lucide="shopping-bag" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Cart Added Toast -->
-  <div class="cart-toast" id="cartToast">
-    <i data-lucide="check-circle" style="width: 18px; height: 18px;"></i>
-    <span id="cartToastMsg">Item added to cart!</span>
+  <!-- ===================================================================
+       16. LIVE SEARCH DRAWER
+       =================================================================== -->
+  <div class="wt-search-drawer" id="searchDrawer" role="search">
+    <div class="wt-search-inner">
+      <i data-lucide="search" style="width: 24px; height: 24px; color: #888;"></i>
+      <input type="text" id="searchInput" class="wt-search-input" placeholder="Search by surface (e.g. Boucle, Italian Marble, Shower Glass, Teak)...">
+      <button class="wt-icon-btn" id="searchCloseBtn" aria-label="Close Search">
+        <i data-lucide="x" style="width: 22px; height: 22px;"></i>
+      </button>
+    </div>
+    <div class="wt-search-results-list" id="searchResults"></div>
   </div>
 
-  <!-- Floating Fast Action Buttons -->
-  <div class="floating-widget">
-    <a href="https://wa.me/919876543210?text=Hi,%20I'm%20interested%20in%20nanocoating%20protection%20for%20my%20furniture." class="float-action-btn whatsapp" target="_blank" rel="noopener" title="Chat on WhatsApp" id="floatingWhatsappBtn">
-      <i data-lucide="message-circle" style="width: 24px; height: 24px;"></i>
-    </a>
-    <button class="float-action-btn quote" data-open-modal="bookingModal" title="Instant Quote" id="floatingQuoteBtn">
-      <i data-lucide="calculator" style="width: 24px; height: 24px;"></i>
-    </button>
+  <!-- ===================================================================
+       17. MOBILE NAVIGATION DRAWER
+       =================================================================== -->
+  <div class="wt-mobile-drawer" id="mobileDrawer">
+    <div class="wt-mobile-nav-panel">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="#" class="wt-logo" aria-label="COATINGWALE Home">
+          <img src="assets/images/logo.png" alt="COATINGWALE" style="height: 38px; width: auto; max-width: 170px; object-fit: contain; mix-blend-mode: multiply;">
+        </a>
+        <button class="wt-icon-btn" id="mobileCloseBtn">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+      <nav class="wt-mobile-nav-links">
+        <a href="#productsSection">All Products</a>
+        <a href="#mosaicSection">Shop By Room</a>
+        <a href="#shoppableSection">Shop The Look</a>
+        <a href="#editorial">German Nanotechnology</a>
+        <a href="#simulator">Spill Simulator</a>
+        <a href="#testimonials">Reviews &amp; Press</a>
+        <a href="#footer">Contact Specialists</a>
+      </nav>
+      <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--color-border);">
+        <p style="font-size: 13px; color: var(--color-body-text-light);">Free Shipping over ₹999 across India</p>
+      </div>
+    </div>
   </div>
 
-  <!-- Scripts -->
+  <!-- Application Logic -->
   <script src="js/main.js"></script>
-  <script>
-    // Initialize Lucide icons
-    if (window.lucide) {
-      lucide.createIcons();
-    }
-  </script>
 </body>
 </html>
